@@ -1,4 +1,12 @@
 ThMoov::Application.routes.draw do
+  get "site/landing"
+
+  get "site/about"
+
+  get "site/contact"
+
+  get "site/help"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
