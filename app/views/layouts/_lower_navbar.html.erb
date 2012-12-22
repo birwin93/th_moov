@@ -1,0 +1,26 @@
+<div class="navbar navbar-fixed-bottom navbar-inverse">
+	<div class="navbar-inner">
+			<%= link_to "Th Moov", '#', id: "logo" %>
+			<% unless current_page?(root_path) %>
+				<nav>
+					<ul class="nav pull-right">
+						<li> <%= link_to "Me", '#' %> </li>
+						<li> <%= link_to "Loops", '#' %> </li>
+						<li> <%= link_to "Events", '#' %> </li>
+						<li> <a href="#"> ^ </a> </li>
+					</ul>
+				</nav>
+			<% else %>
+				<div class="signin-message"> 
+					Already signed up? <a href="#">Sign in </a> now 
+				</div>
+				<ul class="nav pull-right">
+						<li> <%= link_to "About", about_path %> </li>
+						<li> <%= link_to "Contact", contact_path %> </li>
+						<li> <%= link_to "Help", help_path %> </li>
+					</ul>
+				</nav>
+			<% end %>
+			
+	</div>
+</div>
