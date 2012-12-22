@@ -2,39 +2,33 @@ require 'spec_helper'
 
 describe "Site" do
 	
+	subject { page }
+
 	describe "Landing Page" do
 		before { visit root_path }
 
-		it "should have the title 'Th Moov'" do
-			page.should have_selector('title', text: 'Th Moov') 
-		end
+		it { should have_selector('title', text: 'Th Moov') }
 
 	end
 
 	describe "About Page" do
 		before { visit about_path }
 
-		it "should have the title 'Th Moov | About'" do
-			page.should have_selector('title', text: 'Th Moov | About') 
-		end
-
+		it { should have_selector('title', text: 'Th Moov | About') }
+	
 	end
 
 	describe "Contact Page" do
 		before { visit contact_path }
 
-		it "should have the title 'Th Moov'" do
-			page.should have_selector('title', text: 'Th Moov | Contact') 
-		end
+		it { page.should have_selector('title', text: 'Th Moov | Contact') }
 
 	end
 
 	describe "Help Page" do
 		before { visit help_path }
 
-		it "should have the title 'Th Moov | About'" do
-			page.should have_selector('title', text: 'Th Moov | Help') 
-		end
+		it { page.should have_selector('title', text: 'Th Moov | Help') }
 
 	end
 
