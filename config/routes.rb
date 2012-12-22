@@ -1,10 +1,14 @@
 ThMoov::Application.routes.draw do
 
+  get "users/new"
+
   root to: "site#landing"
 
   match "/about", to: "site#about"
   match "/contact", to: "site#contact"
   match "/help", to: "site#help"
+
+  match "/signup", to: "users#new"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
