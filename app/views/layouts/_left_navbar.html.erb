@@ -1,1 +1,7 @@
-<div class="left-navbar">left navbar</div>
+<div class="left-navbar">
+
+	<% if current_page?("/users/:id") %>
+		<%= render '/layouts/profile' %>
+	<% end %> 
+
+</div>

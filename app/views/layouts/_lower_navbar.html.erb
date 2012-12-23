@@ -21,6 +21,8 @@
 					</ul>
 				</nav>
 			<% end %>
-			
+			<% if Rails.env.development? %>
+				<a class="debug-button" href="#">Debug</a>
+			<% end %>
 	</div>
 </div>

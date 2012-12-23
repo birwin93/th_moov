@@ -61,10 +61,9 @@
 
 .left-navbar {
 	position: fixed;
-	top: 20%;
-	bottom: 20%;
-	left: 0;
-	width: 200px;
+	top: 10%;
+	left: 2%;
+	width: 250px;
 	height: 60%;
 	background: gray;
 }
@@ -97,5 +96,46 @@
 	width: 300px;
 	background: yellow;
 	position: relative;
+}
+
+/* ----------------------------------------------*/
+/*					      debug  											   */
+/* ----------------------------------------------*/
+
+@mixin box_sizing {
+	-moz-box-sizing: borded-box;
+	-webkit-box-sizing: borded-box;
+	box-sizing: borded-box;
+}
+
+.debug_dump {
+	width: 100%;
+	margin-top: 45px;
+	@include box-sizing;
+	position: fixed;
+	bottom: 60px;
+}
+
+.debug-button {
+	position: absolute;
+	left: 10px;
+	top: 25px;
+}
+
+/* ----------------------------------------------*/
+/*					      forms  											   */
+/* ----------------------------------------------*/
+
+#error-explanation {
+	color: #f00;
+	ul {
+		list-style: none;
+		margin: 0 0 18px 0;
+	}
+}
+
+.field_with_errors {
+	@extend .control-group;
+	@extend .error;
 }
 

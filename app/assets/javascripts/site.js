@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+	/* fill in front page */
 	var columnX = 0;
 	var heightVal = $(document).height() - 250;
 	var eventY = heightVal;
@@ -10,30 +11,6 @@ $(document).ready(function() {
 	console.log(eventY);
 
 	colors = ['blue', 'yellow', 'red', 'orange', 'green'];
-
-	/*for (var i = 0; i < ; i++) {
-		choice = i % numPics + 1;
-		console.log(choice);
-		
-		$('.pic-container').append("<div class='pic-cover'></div>");
-	}
-
-	for (var j = 0; j < 140; j++) {
-		var currentBrick = $('.pic')[j];
-		var currentCover = $('.pic-cover')[j];
-		$(currentBrick).css("top", currentY + 'px');
-		$(currentBrick).css("left", currentX + 'px');
-		$(currentCover).css("top", currentY + 'px');
-		$(currentCover).css("left", currentX + 'px');
-
-		colorCh = j % 5;
-		$(currentCover).css("background", colors[colorCh]);
-		currentX += 100;
-		if (currentX > 1210) {
-			currentX = 0;
-			currentY += 65;
-		};
-	}*/
 
 	var column;
 	for (var i = 0; i < 60; i++) {
@@ -50,5 +27,22 @@ $(document).ready(function() {
 		$(column).append("<div class='event-banner'></div");
 		eventY += 100;
 	};
+
+	/* debug screen */
+
+	var debugOn = false;
+	$('.debug_dump').hide();
+
+	$('a.debug-button').click(function() {
+		if (debugOn) {
+			$('.debug_dump').hide();
+			debugOn = false;
+			console.log('show');
+		} else {
+			$('.debug_dump').show();
+			debugOn = true;
+			console.log('hide');
+		}
+	});
 
 });

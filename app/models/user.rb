@@ -19,4 +19,9 @@ class User < ActiveRecord::Base
   validates :password, presence: true, length: { minimum: 6 }
 
   before_save { |user| user.email = email.downcase }
+
+  def full_name
+  	"#{firstName} #{lastName}"
+  end
+  
 end
