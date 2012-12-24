@@ -1,4 +1,10 @@
 ThMoov::Application.routes.draw do
+  resources :loop_memberships
+
+
+  resources :loops
+
+
   resources :users
   resources :sessions, only: [:create, :destroy]
 

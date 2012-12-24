@@ -1,4 +1,7 @@
 class SiteController < ApplicationController
+
+  layout 'launch'
+
   def landing
   	if signed_in?
   		redirect_to current_user

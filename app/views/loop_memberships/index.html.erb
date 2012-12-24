@@ -1,0 +1,29 @@
+<h1>Listing loop_memberships</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Loop</th>
+    <th>Status</th>
+    <th>Creator</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @loop_memberships.each do |loop_membership| %>
+  <tr>
+    <td><%= loop_membership.user_id %></td>
+    <td><%= loop_membership.loop_id %></td>
+    <td><%= loop_membership.status %></td>
+    <td><%= loop_membership.creator %></td>
+    <td><%= link_to 'Show', loop_membership %></td>
+    <td><%= link_to 'Edit', edit_loop_membership_path(loop_membership) %></td>
+    <td><%= link_to 'Destroy', loop_membership, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Loop membership', new_loop_membership_path %>

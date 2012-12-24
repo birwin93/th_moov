@@ -2,17 +2,22 @@
 #
 # Table name: users
 #
-#  id         :integer          not null, primary key
-#  firstName  :string(255)
-#  lastName   :string(255)
-#  email      :string(255)
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id              :integer          not null, primary key
+#  firstName       :string(255)
+#  lastName        :string(255)
+#  email           :string(255)
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  password_digest :string(255)
+#  remember_token  :string(255)
 #
 
 class User < ActiveRecord::Base
   attr_accessible :email, :firstName, :lastName, :password, :password_confirmation
   has_secure_password
+
+  has_many :loop_memberships
+  has_many :loops, through: :loop_memberships
 
   validates :firstName, :lastName, :email, presence: true
   validates :email, uniqueness: { case_sensitive: false }

@@ -1,0 +1,7 @@
+<% @loops.each do |loop| %>
+	<td>
+		<div class="loop-container">
+			<%= link_to loop.name, loop, class: 'loop-name' %>
+		</div>
+	</td>
+<% end %>

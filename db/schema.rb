@@ -11,7 +11,28 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121224012035) do
+ActiveRecord::Schema.define(:version => 20121224200750) do
+
+  create_table "loop_memberships", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "loop_id"
+    t.string   "status"
+    t.boolean  "creator",    :default => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+  end
+
+  add_index "loop_memberships", ["loop_id"], :name => "index_loop_memberships_on_loop_id"
+  add_index "loop_memberships", ["user_id", "loop_id"], :name => "index_loop_memberships_on_user_id_and_loop_id", :unique => true
+  add_index "loop_memberships", ["user_id"], :name => "index_loop_memberships_on_user_id"
+
+  create_table "loops", :force => true do |t|
+    t.string   "privacy"
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "firstName"
