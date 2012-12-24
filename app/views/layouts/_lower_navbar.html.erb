@@ -1,18 +1,24 @@
 <div class="navbar navbar-fixed-bottom navbar-inverse">
 	<div class="navbar-inner">
 			<%= link_to "Th Moov", '#', id: "logo" %>
-			<% unless current_page?(root_path) %>
+			<% if signed_in? %>
 				<nav>
 					<ul class="nav pull-right">
 						<li> <%= link_to "Me", '#' %> </li>
 						<li> <%= link_to "Loops", '#' %> </li>
 						<li> <%= link_to "Events", '#' %> </li>
-						<li> <a href="#"> ^ </a> </li>
+						<li class="dropup"> 
+							<a class="dropdown-toggle" data-toggle="dropdown"> 
+								^ </a> 
+							<ul class="dropdown-menu">
+								<li> <%= link_to "Logout", signout_path, method: 'delete' %> </li>
+							</ul>
+						</li>
 					</ul>
 				</nav>
 			<% else %>
 				<div class="signin-message"> 
-					Already signed up? <a href="#">Sign in </a> now 
+					Already signed up? <a class="signin-button">Sign in </a> now 
 				</div>
 				<ul class="nav pull-right">
 						<li> <%= link_to "About", about_path %> </li>

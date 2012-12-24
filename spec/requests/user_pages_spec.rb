@@ -11,6 +11,7 @@ describe "UserPages" do
 			before do
 				fill_in "Firstname", with: "Example"
 				fill_in "Lastname", with: "User"
+				fill_in "Email", with: "user@example.com"
 				fill_in "Password", with: "Password"
 				fill_in "Confirmation", with: "Password"
 			end
