@@ -45,4 +45,29 @@ $(document).ready(function() {
 		}
 	});
 
+	/*  login box   */
+	var loginBoxOn = false;
+	$('a.signin-button').click(function() {
+		console.log("moving login screen");
+		if (!loginBoxOn) {
+  		$('.signin-box').animate({
+    		bottom: '+=360'
+  		}, 500, function() {
+    		loginBoxOn = true;
+    		console.log("nboom");
+  		});
+    }
+  });
+  $('a.signin-exit-button').click(function() {
+		console.log("moving login screen");
+		if (loginBoxOn) {
+  		$('.signin-box').animate({
+    		bottom: '-=360'
+  		}, 500, function() {
+    		loginBoxOn = false;
+    		console.log("nboom");
+  		});
+    }
+  });
+	
 });

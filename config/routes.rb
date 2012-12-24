@@ -1,5 +1,6 @@
 ThMoov::Application.routes.draw do
   resources :users
+  resources :sessions, only: [:create, :destroy]
 
   root to: "site#landing"
 
@@ -8,6 +9,7 @@ ThMoov::Application.routes.draw do
   match "/help", to: "site#help"
 
   match "/signup", to: "users#new"
+  match "/signout", to: "sessions#destroy", via: :delete
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
