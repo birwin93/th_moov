@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
   before_save :create_remember_token
   
   def full_name
-  	"#{firstName} #{lastName}"
+  	"#{self.firstName} #{self.lastName}"
   end
 
   private
