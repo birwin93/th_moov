@@ -1,5 +1,14 @@
 ThMoov::Application.routes.draw do
  
+
+  resources :loop_event_shares
+
+
+  resources :events do
+    resources :event_memberships
+  end
+
+
   resources :loops do
     resources :loop_memberships
   end
@@ -20,6 +29,7 @@ ThMoov::Application.routes.draw do
   put "loop_memberships/:id/accept", to: "loop_memberships#accept", as: 'accept_loop_membership'
   put "loop_memberships/:id/decline", to: "loop_memberships#decline", as: 'decline_loop_membership'
 
+  put "events/:id/join", to: "events#join", as: "join_event"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

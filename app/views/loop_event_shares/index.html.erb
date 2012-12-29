@@ -1,0 +1,21 @@
+<h1>Listing loop_event_shares</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @loop_event_shares.each do |loop_event_share| %>
+  <tr>
+    <td><%= link_to 'Show', loop_event_share %></td>
+    <td><%= link_to 'Edit', edit_loop_event_share_path(loop_event_share) %></td>
+    <td><%= link_to 'Destroy', loop_event_share, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Loop event share', new_loop_event_share_path %>

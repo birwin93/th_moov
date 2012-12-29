@@ -1,0 +1,29 @@
+<h1>Listing event_memberships</h1>
+
+<table>
+  <tr>
+    <th>Only</th>
+    <th>[</th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @event_memberships.each do |event_membership| %>
+  <tr>
+    <td><%= event_membership.only %></td>
+    <td><%= event_membership.[ %></td>
+    <td><%= event_membership. %></td>
+    <td><%= event_membership. %></td>
+    <td><%= link_to 'Show', event_membership %></td>
+    <td><%= link_to 'Edit', edit_event_membership_path(event_membership) %></td>
+    <td><%= link_to 'Destroy', event_membership, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Event membership', new_event_membership_path %>

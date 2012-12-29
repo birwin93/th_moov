@@ -17,4 +17,7 @@ class Loop < ActiveRecord::Base
 
   has_many :loop_memberships
   has_many :users, through: :loop_memberships
+
+  has_many :loop_event_shares
+  has_many :events, through: :loop_event_shares
 end

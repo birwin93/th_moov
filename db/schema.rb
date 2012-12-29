@@ -11,7 +11,37 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121228210530) do
+ActiveRecord::Schema.define(:version => 20121229174642) do
+
+  create_table "event_memberships", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "event_id"
+    t.integer  "user_id"
+    t.integer  "author_id"
+  end
+
+  add_index "event_memberships", ["event_id"], :name => "index_event_memberships_on_event_id"
+  add_index "event_memberships", ["user_id", "event_id"], :name => "index_event_memberships_on_user_id_and_event_id", :unique => true
+  add_index "event_memberships", ["user_id"], :name => "index_event_memberships_on_user_id"
+
+  create_table "events", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "loop_event_shares", :force => true do |t|
+    t.integer  "loop_id"
+    t.integer  "event_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "loop_event_shares", ["event_id"], :name => "index_loop_event_shares_on_event_id"
+  add_index "loop_event_shares", ["loop_id", "event_id"], :name => "index_loop_event_shares_on_loop_id_and_event_id", :unique => true
+  add_index "loop_event_shares", ["loop_id"], :name => "index_loop_event_shares_on_loop_id"
 
   create_table "loop_memberships", :force => true do |t|
     t.integer  "user_id"

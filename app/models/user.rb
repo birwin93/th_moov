@@ -19,6 +19,9 @@ class User < ActiveRecord::Base
   has_many :loop_memberships
   has_many :loops, through: :loop_memberships
 
+  has_many :event_memberships
+  has_many :events, through: :event_memberships
+
   validates :firstName, :lastName, :email, presence: true
   validates :email, uniqueness: { case_sensitive: false }
   validates :password, presence: true, length: { minimum: 6 }

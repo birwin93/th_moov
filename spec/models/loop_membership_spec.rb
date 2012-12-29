@@ -9,6 +9,8 @@
 #  creator    :boolean          default(FALSE)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  admin      :boolean          default(FALSE)
+#  author_id  :integer
 #
 
 require 'spec_helper'

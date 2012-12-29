@@ -9,6 +9,8 @@
 #  creator    :boolean          default(FALSE)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  admin      :boolean          default(FALSE)
+#  author_id  :integer
 #
 
 class LoopMembership < ActiveRecord::Base
@@ -33,11 +35,11 @@ class LoopMembership < ActiveRecord::Base
   end
 
   def makeAdmin!
-  	self.admin = true;
+  	self.update_attributes(admin: "true")
   end
 
   def removeAdmin!
-  	self.admin = false;
+  	self.update_attributes(admin: "false")
   end
 
 
