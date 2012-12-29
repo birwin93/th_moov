@@ -1,8 +1,8 @@
 ThMoov::Application.routes.draw do
-  resources :loop_memberships
-
-
-  resources :loops
+ 
+  resources :loops do
+    resources :loop_memberships
+  end
 
 
   resources :users
@@ -16,6 +16,9 @@ ThMoov::Application.routes.draw do
 
   match "/signup", to: "users#new"
   match "/signout", to: "sessions#destroy", via: :delete
+
+  put "loop_memberships/:id/accept", to: "loop_memberships#accept", as: 'accept_loop_membership'
+  put "loop_memberships/:id/decline", to: "loop_memberships#decline", as: 'decline_loop_membership'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,1 +1,13 @@
 <% provide(:title, @user.firstName) %>
+
+<div class="notification-area">
+	<ul>
+		<% @invitations.each do |i| %>
+			<li> <%= link_to i.author.full_name, i.author %> has invited you to join 
+				<%= link_to i.loop.name, i.loop %> 
+				<br>
+				<%= link_to "Join", accept_loop_membership_path(i), method: :put %>
+			</li>
+		<% end %>
+	</ul>
+</div>

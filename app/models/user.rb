@@ -30,6 +30,7 @@ class User < ActiveRecord::Base
   	"#{self.firstName} #{self.lastName}"
   end
 
+  
   private
 
   	def create_remember_token

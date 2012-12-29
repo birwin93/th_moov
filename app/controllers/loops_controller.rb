@@ -5,7 +5,6 @@ class LoopsController < ApplicationController
 
   def index
     @loops = current_user.loops
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @loops }
@@ -15,7 +14,7 @@ class LoopsController < ApplicationController
   # GET /loops/1
   # GET /loops/1.json
   def show
-    
+    @user = User.new
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @loop }
@@ -35,7 +34,7 @@ class LoopsController < ApplicationController
 
   # GET /loops/1/edit
   def edit
-    @loop = Loop.find(params[:id])
+    
   end
 
   # POST /loops
@@ -45,6 +44,8 @@ class LoopsController < ApplicationController
 
     respond_to do |format|
       if @loop.save
+        lm = current_user.loop_memberships.create(loop_id: @loop.id, author_id: current_user.id, creator: true, admin: true)
+        lm.accept!
         format.html { redirect_to @loop, notice: 'Loop was successfully created.' }
         format.json { render json: @loop, status: :created, location: @loop }
       else
@@ -57,7 +58,7 @@ class LoopsController < ApplicationController
   # PUT /loops/1
   # PUT /loops/1.json
   def update
-    @loop = Loop.find(params[:id])
+ 
 
     respond_to do |format|
       if @loop.update_attributes(params[:loop])
@@ -73,7 +74,6 @@ class LoopsController < ApplicationController
   # DELETE /loops/1
   # DELETE /loops/1.json
   def destroy
-    @loop = Loop.find(params[:id])
     @loop.destroy
 
     respond_to do |format|

@@ -21,17 +21,21 @@ describe LoopMembership do
 
   subject { membership }
 
+  it { should respond_to(:makeAdmin!) }
+  it { should respond_to(:removeAdmin!) }
+  it { should respond_to(:accept!) }
+  it { should respond_to(:decline!) }
+
  	describe "when loop_id is not present" do
   	before { membership.loop_id = nil }
   	it { should_not be_valid }
   end
 
-  describe "status should be pending initially" do
+  describe "status should be pending initially and admin false" do
   	before { membership.save }
   	its(:status) { should == "pending" }
+    its(:admin) { should == false }
   end
-
-
 
 
 end

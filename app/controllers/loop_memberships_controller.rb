@@ -1,6 +1,22 @@
 class LoopMembershipsController < ApplicationController
   # GET /loop_memberships
   # GET /loop_memberships.json
+
+  before_filter :load_loop_membership, only: [:accept, :decline]
+
+  def accept
+    if @loop_membership.accept!
+      flash[:notice] = "Joined #{@loop_membership.loop.name}"
+    end
+    redirect_to @loop_membership.loop
+  end
+
+  def decline
+    @loop_membership.decline!
+    redirect_to current_user
+  end
+
+
   def index
     @loop_memberships = LoopMembership.all
 
@@ -24,6 +40,7 @@ class LoopMembershipsController < ApplicationController
   # GET /loop_memberships/new
   # GET /loop_memberships/new.json
   def new
+    @loop = Loop.new
     @loop_membership = LoopMembership.new
 
     respond_to do |format|
@@ -40,17 +57,22 @@ class LoopMembershipsController < ApplicationController
   # POST /loop_memberships
   # POST /loop_memberships.json
   def create
-    @loop_membership = LoopMembership.new(params[:loop_membership])
 
-    respond_to do |format|
-      if @loop_membership.save
-        format.html { redirect_to @loop_membership, notice: 'Loop membership was successfully created.' }
-        format.json { render json: @loop_membership, status: :created, location: @loop_membership }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @loop_membership.errors, status: :unprocessable_entity }
-      end
+    @user = User.where(firstName: params[:user][:firstName]).first
+    @loop = Loop.find(params[:loop_id])
+
+    if @user
+      lm = @user.loop_memberships.build(loop_id: @loop.id)
+      lm.status = "pending"
+      lm.author_id = current_user.id
+      lm.save
+      flash[:success] = "invitation sent"
+      redirect_to loop_path(@loop)
+    else 
+      flash[:error] = "error with invitation"
+      redirect_to loop_path(@loop)
     end
+
   end
 
   # PUT /loop_memberships/1
@@ -80,4 +102,9 @@ class LoopMembershipsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+    def load_loop_membership
+      @loop_membership = current_user.loop_memberships.find(params[:id])
+    end
 end

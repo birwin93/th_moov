@@ -7,6 +7,14 @@ FactoryGirl.define do
 		password_confirmation "password"
 	end
 
+	factory :second_user, class: 'User' do
+		firstName  "Gabe"
+		lastName   "Schindler"
+		email      "gabe93@gmail.com"
+		password   "password"
+		password_confirmation "password"
+	end
+
 	factory :thmoov_loop, class: 'Loop' do
 		name "Th Moov"
 		privacy "open"

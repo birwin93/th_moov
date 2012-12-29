@@ -12,21 +12,32 @@
 #
 
 class LoopMembership < ActiveRecord::Base
-  attr_accessible :creator, :loop_id
+  attr_accessible :creator, :loop_id, :author_id, :status
 
   validates :loop_id, :user_id, :status, presence: true
 
+  scope :pending, where("status = ?", "pending")
+
   belongs_to :loop
   belongs_to :user
+  belongs_to :author, class_name: "User"
 
   before_validation { |lm| lm.status = "pending" if lm.new_record? }
 
   def accept! 
-  	self.status = "accepted"
+  	self.update_attributes(status: "accepted")
   end
 
   def decline!
-  	self.status = "decline"
+  	self.update_attributes(status: "decline")
+  end
+
+  def makeAdmin!
+  	self.admin = true;
+  end
+
+  def removeAdmin!
+  	self.admin = false;
   end
 
 

@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   def show 
   	@user = User.find(params[:id])
+    @invitations = @user.loop_memberships.pending
   end
 
   def create 

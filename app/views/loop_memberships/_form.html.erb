@@ -1,4 +1,4 @@
-<%= form_for(@loop_membership) do |f| %>
+<%= form_for([@loop, @loop_membership]) do |f| %>
   <% if @loop_membership.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@loop_membership.errors.count, "error") %> prohibited this loop_membership from being saved:</h2>

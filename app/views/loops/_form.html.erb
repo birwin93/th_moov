@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :privacy %><br />
-    <%= f.text_field :privacy %>
+    <%= f.select(:privacy, [["Open", 1], ["Closed", 2]]) %>
   </div>
   <div class="field">
     <%= f.label :name %><br />
@@ -23,7 +23,7 @@
     <%= f.label :description %><br />
     <%= f.text_area :description %>
   </div>
-  <div class="actions">
+  <div class="actions" style="position: absolute; top: 50px; right: 200px;">
     <%= f.submit %>
   </div>
 <% end %>
