@@ -1,0 +1,11 @@
+<ul class="no-style">
+<% @loops.each do |loop| %>
+  <% unless loop.events.include?(@event) %>
+    <li> 
+      <%= loop.name %> 
+      <%= link_to 'Share', share_event_path(@event, loop), method: :post %>
+    </li>
+  <% end %>
+<% end %>
+</ul>
+

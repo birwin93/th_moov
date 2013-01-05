@@ -1,6 +1,9 @@
 class LoopEventSharesController < ApplicationController
   # GET /loop_event_shares
   # GET /loop_event_shares.json
+
+  before_filter :get_loop, except: [:create]
+
   def index
     @loop_event_shares = LoopEventShare.all
 
@@ -40,11 +43,12 @@ class LoopEventSharesController < ApplicationController
   # POST /loop_event_shares
   # POST /loop_event_shares.json
   def create
-    @loop_event_share = LoopEventShare.new(params[:loop_event_share])
-
+    @loop = Loop.find(params[:loop_id])
+    @event = Event.find(params[:event_id])
+    @loop_event_share = LoopEventShare.new(loop_id: @loop.id, event_id: @event.id)
     respond_to do |format|
       if @loop_event_share.save
-        format.html { redirect_to @loop_event_share, notice: 'Loop event share was successfully created.' }
+        format.html { redirect_to @event, notice: 'Loop event share was successfully created.' }
         format.json { render json: @loop_event_share, status: :created, location: @loop_event_share }
       else
         format.html { render action: "new" }
@@ -80,4 +84,9 @@ class LoopEventSharesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+    def get_loop
+      @loop = Loop.find(params[:id])
+    end
 end
