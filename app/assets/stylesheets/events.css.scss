@@ -3,11 +3,11 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .events-box {
-	-webkit-columns: 600px 10;
+	-webkit-columns: 220px;
 	position: absolute;
 	top: 10%;
 	left: 300px;
-	height: 400px;
+	height: 80%;
 	border: 2px solid yellow;
 }
 
@@ -19,7 +19,9 @@
 	float: left;
 	width: 200px;
 	height: 200px;
+	margin: 10px;
 	border: 2px solid black;
+	-webkit-column-break-inside: avoid;
 }
 
 .share-box {

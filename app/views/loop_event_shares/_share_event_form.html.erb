@@ -1,5 +1,5 @@
 <ul class="no-style">
-<% @loops.each do |loop| %>
+<% current_user.loops.each do |loop| %>
   <% unless loop.events.include?(@event) %>
     <li> 
       <%= loop.name %> 

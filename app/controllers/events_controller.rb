@@ -14,7 +14,6 @@ class EventsController < ApplicationController
   # GET /events/1.json
   def show
     @event = Event.find(params[:id])
-    @loops = current_user.loops
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @event }
@@ -84,7 +83,7 @@ class EventsController < ApplicationController
   def join
     @event = Event.find(params[:id])
     if current_user.event_memberships.create!(event_id: @event.id)
-      flash[:success] = "Successfully attending event"
+      flash[:success] = "Added event to your events"
       render 'show'
     else
       flash[:error] = "Failed to attend event"
