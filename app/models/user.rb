@@ -2,19 +2,27 @@
 #
 # Table name: users
 #
-#  id              :integer          not null, primary key
-#  firstName       :string(255)
-#  lastName        :string(255)
-#  email           :string(255)
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
-#  password_digest :string(255)
-#  remember_token  :string(255)
+#  id                  :integer          not null, primary key
+#  firstName           :string(255)
+#  lastName            :string(255)
+#  email               :string(255)
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#  password_digest     :string(255)
+#  remember_token      :string(255)
+#  avatar_file_name    :string(255)
+#  avatar_content_type :string(255)
+#  avatar_file_size    :integer
+#  avatar_updated_at   :datetime
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :email, :firstName, :lastName, :password, :password_confirmation
+  attr_accessible :email, :firstName, :lastName, :password, :password_confirmation, :avatar
+
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }
   has_secure_password
+
+
 
   has_many :loop_memberships
   has_many :loops, through: :loop_memberships

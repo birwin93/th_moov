@@ -1,5 +1,5 @@
 <div class="profile-box">
-	<div class="profile-pic"></div>
+	<%= image_tag @loop.avatar.url(:thumb), class: "profile-pic" %>
 	<div class="profile-info">
 		<p> <%= @loop.name %> </p>
 	</div>

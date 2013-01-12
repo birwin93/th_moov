@@ -1,8 +1,6 @@
 <% provide(:title, "Signup") %>
 
-<div class="row">
-	<div class="span6 offset6">
-		<%= form_for(@user) do |f| %>
+		<%= form_for(@user, :html => { :multipart => true }) do |f| %>
 			<%= render 'shared/error_messages' %>
 			<%= f.label :firstName %>
 			<%= f.text_field :firstName %>
@@ -19,7 +17,8 @@
 			<%= f.label :password_confirmation, "Confirmation" %>
 			<%= f.password_field :password_confirmation %>
 
+		 <%= f.file_field :avatar %> 
+
 			<%= f.submit "Create my account" %>
 		<% end %>
-	</div>
-</div>
+

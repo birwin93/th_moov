@@ -11,7 +11,10 @@
 		<div class="loop-user-box columns-220">
 			<ul class="no-style">
 			<% @loop.users.each do |user| %>
-				<li> <div class="user-stream-item"> <%= link_to user.full_name, user %> </div></li>
+				<li> <div class="user-stream-item"> 
+					<%= image_tag user.avatar.url(:thumb) %>
+					<!-- <%= link_to user.full_name, user %>  -->
+				</div></li>
 			<% end %>
 			</ul>
 		</div> 

@@ -1,4 +1,4 @@
-<%= form_for(@loop) do |f| %>
+<%= form_for(@loop, :html => { :multipart => true }) do |f| %>
   <% if @loop.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@loop.errors.count, "error") %> prohibited this loop from being saved:</h2>
@@ -23,7 +23,12 @@
     <%= f.label :description %><br />
     <%= f.text_area :description %>
   </div>
+  <div class="loop-file-input">
+    <%= f.file_field :avatar %>
+  </div>
+
   <div class="actions" style="position: absolute; top: 50px; right: 200px;">
+
     <%= f.submit %>
   </div>
 <% end %>
