@@ -1,32 +1,32 @@
 $(document).ready(function() {
 
 	/* fill in front page */
-	var columnX = 0;
-	var heightVal = $(document).height() - 250;
-	var eventY = heightVal;
-	var colors = 5;
-	var chosenColor = 0;
-	var numColumns = 0;
-	$('.event-timeline-container').css('height', heightVal +'px');
-	console.log(eventY);
+	
+	var newHeight = $('body').height() - 50;
+   console.log(newHeight);
+   $('#main').height(newHeight);
 
-	colors = ['blue', 'yellow', 'red', 'orange', 'green'];
+  $(window).resize(function(){
+    var newHeight = $('body').height() - 50;
+    console.log(newHeight);
+    $('#main').height(newHeight);
+	});
 
-	var column;
-	for (var i = 0; i < 60; i++) {
-		if (eventY > heightVal - 130) {
-			$('.event-timeline-container').append("<div class='event-timeline-column'></div");
-			column = $('.event-timeline-column')[numColumns];
-			$(column).css('left', columnX + 'px');
-			$(column).css('height', heightVal + 'px');
-			numColumns += 1;
-			eventY = 0;
-			columnX += 400;
-		};
+	$('#lower-navbar').hover(
+		function() {
+			$('#main').animate({
+				height: '-=150'
+			}, 250, function() {
 
-		$(column).append("<div class='event-banner'></div");
-		eventY += 100;
-	};
+			});
+			console.log('hovering');
+		}, function() {
+			$('#main').animate({
+				height: '+=150'
+			}, 250, function() {
+
+			});
+		});
 
 	/* debug screen */
 
@@ -69,5 +69,5 @@ $(document).ready(function() {
   		});
     }
   });
-	
+
 });
