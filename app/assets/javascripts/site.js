@@ -2,26 +2,28 @@ $(document).ready(function() {
 
 	/* fill in front page */
 	
-	var newHeight = $('body').height() - 50;
-   console.log(newHeight);
-   $('#main').height(newHeight);
+	var conHeight = $('body').height() - 50;
+	var navHeight = conHeight * 0.8;
+  $('#main').height(conHeight);
+  $('#left-navbar').height(navHeight);
 
   $(window).resize(function(){
-    var newHeight = $('body').height() - 50;
-    console.log(newHeight);
-    $('#main').height(newHeight);
+    var conHeight = $('body').height() - 50;
+		var navHeight = conHeight * 0.8;
+  	$('#main').height(conHeight);
+  	$('#left-navbar').height(navHeight);
 	});
 
 	$('#lower-navbar').hover(
 		function() {
-			$('#main').animate({
+			$('#main, #left-navbar').animate({
 				height: '-=150'
 			}, 250, function() {
 
 			});
 			console.log('hovering');
 		}, function() {
-			$('#main').animate({
+			$('#main, #left-navbar').animate({
 				height: '+=150'
 			}, 250, function() {
 

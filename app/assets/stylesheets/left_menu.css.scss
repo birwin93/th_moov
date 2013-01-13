@@ -1,3 +1,12 @@
+#left-navbar {
+	position: fixed;
+	top: 10%;
+	width: 200px;
+	min-height: 150px;
+	background: black;
+	z-index: 1000;
+}
+
 .menu-btn-group {
 	position: absolute;
 	width: 100%;
@@ -13,4 +22,16 @@
 
 .selected {
 	color: orange;
+}
+
+#left-navbar {
+	li {
+		text-align: center;
+		a {
+			color: white;
+			&:hover {
+				color: #44C0E5;
+			}
+		}
+	}
 }

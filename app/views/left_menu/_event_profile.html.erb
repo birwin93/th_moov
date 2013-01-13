@@ -1,0 +1,7 @@
+<ul class="nav nav-tabs nav-stacked">
+	<% if current_user.events.include?(@event) %>
+		<li> <a href="#"> Leave <%=@event.name %> </a> </li>
+	<% else %>
+		
+	<% end %>
+</ul>

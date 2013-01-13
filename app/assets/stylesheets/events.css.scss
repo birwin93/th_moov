@@ -2,27 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.events-box {
-	-webkit-columns: 220px;
-	position: absolute;
-	top: 10%;
-	left: 300px;
-	height: 80%;
-	border: 2px solid yellow;
-}
-
-.event-stream {
-	
-}
-
-.stream-item {
-	float: left;
-	width: 200px;
-	height: 200px;
-	margin: 10px;
-	border: 2px solid black;
-	-webkit-column-break-inside: avoid;
-}
 
 .share-box {
 	position: absolute;

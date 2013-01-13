@@ -39,9 +39,9 @@
 
 <div class="navbar navbar-fixed-bottom" id="lower-navbar">
 	 <ul class="nav main-nav">
-	 	<li> <a href='#'> Me </a> </li>
-	 	<li> <a href='#'> Loops </a> </li>
-	 	<li> <a href='#'> Events </a>  </li>
-	 	<li> <a href='#'> Settings </a>  </li>
+	 	<li> <%= link_to "Me", user_path(current_user) %> </li>
+		<li> <%= link_to "Loops", loops_path %> </li>
+		<li> <%= link_to "Events", events_path %> </li>
+		<li> <a href="#"> Settings </a> </li>
    </ul>
 </div>

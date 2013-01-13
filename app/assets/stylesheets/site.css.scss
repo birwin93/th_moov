@@ -3,17 +3,20 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 @import "bootstrap";
-@import "compass";
 
-.black-border {
+.b-border {
 	border: 2px solid black;
 }
 
 #main {
 	//height: 100%;
-	background: white;
+	background: #E6EFF7;
 	position: relative;
 	z-index: 2;
+	padding: 0px;
+	width: 100%;
+	overflow-x: auto;
+	overflow-y: hidden;
 }
 
 html, body, { 
@@ -26,20 +29,23 @@ html, body, {
 }
     
 [class*="span"] { 
-	background-color: #888888; 
+	//background-color: #888888; 
 	height: 100%; 
+	position: relative;
 }
 
 #sidebar {
- background-color: black; 
- height: 100%; 
+	position: relative;
+	margin-left: 25px;
+ 	//background-color: white; 
+ 	height: 100%; 
 }
     
 /* For static sidebar */
 #main > .row-fluid { 
 	float: left; 
 	margin-right: -450px;
-	width: 70%; 
+	//width: 70%; 
 }
 #inner-container {
  //margin-right: 450px; 
@@ -47,23 +53,8 @@ html, body, {
 #sidebar { 
 	float: left; 
 	width: 230px; 
-	margin-right: 30px;
+	margin-right: 20px;
 }
-
-#bg {
-	position: fixed;
-	height: 100%;
-	width: 100%;
-	background: rgb(255,175,75); /* Old browsers */
-	background: -moz-linear-gradient(top, rgba(255,175,75,1) 0%, rgba(255,146,10,1) 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,175,75,1)), color-stop(100%,rgba(255,146,10,1))); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top, rgba(255,175,75,1) 0%,rgba(255,146,10,1) 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top, rgba(255,175,75,1) 0%,rgba(255,146,10,1) 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top, rgba(255,175,75,1) 0%,rgba(255,146,10,1) 100%); /* IE10+ */
-	background: linear-gradient(to bottom, rgba(255,175,75,1) 0%,rgba(255,146,10,1) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffaf4b', endColorstr='#ff920a',GradientType=0 ); /* IE6-9 */
-}
-
 
 .no-style {
 	list-style: none;
@@ -77,11 +68,10 @@ html, body, {
 
 .body-container {
 	position: absolute;
-	top: 0;
-	left: 0;
-	height: 100%;
+	height: 80%;
+	top: 10%;
+	min-height: 250px;
 	width: 100%;
-	min-height: 600px;
 }
 
 .center {
@@ -141,6 +131,12 @@ html, body, {
 
 	a {
 		padding: 0;
+		color: white;
+		text-shadow: 0px 1px 0px gray;
+
+		&:hover {
+			color: #44C0E5;
+		}
 	}
 }
 
@@ -154,11 +150,17 @@ html, body, {
 	height: 200px;
 	z-index: 1;
 
-	background-color: #f4dd29; // Old browsers
-	@include filter-gradient(#f4dd29, #f2a529, vertical); // IE6-8
-	// IE9 SVG, needs conditional override of 'filter' to 'none'
-	$experimental-support-for-svg: true;
-	@include background-image(linear-gradient(top, #f4dd29 0%,#f2a529 100%));
+	background: #f4dd29; /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y0ZGQyOSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmMmE1MjkiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  #f4dd29 0%, #f2a529 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f4dd29), color-stop(100%,#f2a529)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #f4dd29 0%,#f2a529 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #f4dd29 0%,#f2a529 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #f4dd29 0%,#f2a529 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #f4dd29 0%,#f2a529 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4dd29', endColorstr='#f2a529',GradientType=0 ); /* IE6-8 */
+
 
 }
 
@@ -169,21 +171,6 @@ html, body, {
 		margin-top: 10px;
 	}
 }
-
-
-/* ----------------------------------------------*/
-/*					left navbar												   */
-/* ----------------------------------------------*/
-
-.left-navbar {
-	position: fixed;
-	top: 10%;
-	left: 2%;
-	width: 250px;
-	height: 60%;
-	background: gray;
-}
-
 
 /* ----------------------------------------------*/
 /*					      events 											   */

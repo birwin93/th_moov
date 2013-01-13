@@ -1,0 +1,13 @@
+<div id="left-navbar">
+
+	<% if current_page?(user_path(current_user)) %>
+		<%= render '/left_menu/user_profile' %>
+	<% elsif params[:controller] == 'loops' && params[:action] == 'show' %>
+		<%= render '/left_menu/loop_profile' %>
+	<% elsif params[:controller] == 'loops' && params[:action] == 'index' %>
+		<%= render '/left_menu/loops_index' %>
+	<% elsif params[:controller] == 'events' && params[:action] == 'show' %>
+		<%= render '/left_menu/event_profile' %>
+	<% end %> 
+
+</div>
