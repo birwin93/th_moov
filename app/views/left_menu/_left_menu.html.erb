@@ -1,6 +1,6 @@
 <div id="left-navbar">
 
-	<% if current_page?(user_path(current_user)) %>
+	<% if params[:controller] == 'users' && params[:action] == 'show' %>
 		<%= render '/left_menu/user_profile' %>
 	<% elsif params[:controller] == 'loops' && params[:action] == 'show' %>
 		<%= render '/left_menu/loop_profile' %>

@@ -11,9 +11,6 @@
 </head>
 <body>
 <div class="body-container">
-	<% flash.each do |key, value| %>
-		<div class="center alert alert-<%= key %>"><%= value %></div>
-	<% end %>
 	<%= yield %>
 </div>
 

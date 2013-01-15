@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	$(".loop-user-box, .loop-event-box").hide();
+	$("#loop-users, #loop-events").hide();
 
 
 	var selected_label = $("#show-info");
@@ -9,8 +9,8 @@ $(document).ready(function() {
 		selected_label.removeClass("selected");
 		selected_label = $(this);
 		$(this).addClass("selected");
-		$(".loop-event-box").hide();
-		$(".loop-user-box").show();
+		$("#loop-events").hide();
+		$("#loop-users").show();
 		$(".loop-info-box").hide();
 	});
 
@@ -18,8 +18,8 @@ $(document).ready(function() {
 		selected_label.removeClass("selected");
 		selected_label = $(this);
 		$(this).addClass("selected");
-		$(".loop-event-box").show();
-		$(".loop-user-box").hide();
+		$("#loop-events").show();
+		$("#loop-users").hide();
 		$(".loop-info-box").hide();
 	});
 
@@ -27,8 +27,8 @@ $(document).ready(function() {
 		selected_label.removeClass("selected");
 		selected_label = $(this);
 		$(this).addClass("selected");
-		$(".loop-event-box").hide();
-		$(".loop-user-box").hide();
+		$("#loop-events").hide();
+		$("#loop-users").hide();
 		$(".loop-info-box").show();
 
 	});

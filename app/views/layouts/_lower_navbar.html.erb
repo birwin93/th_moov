@@ -38,10 +38,29 @@
 </div> -->
 
 <div class="navbar navbar-fixed-bottom" id="lower-navbar">
-	 <ul class="nav main-nav">
-	 	<li> <%= link_to "Me", user_path(current_user) %> </li>
-		<li> <%= link_to "Loops", loops_path %> </li>
-		<li> <%= link_to "Events", events_path %> </li>
-		<li> <a href="#"> Settings </a> </li>
-   </ul>
+	<% if signed_in? %>
+	 
+   <% else %>
+   <div class="signin-box">
+	<a class="signin-exit-button">X</a>
+	<div class="row">
+		<div class="span6 offset3">
+			<%= form_for(:session, url: sessions_path) do |f| %>
+				<%= f.label :email %>
+				<%= f.text_field :email %>
+
+				<%= f.label :password %>
+				<%= f.password_field :password %>
+
+				<%= f.submit "Login" %>
+			<% end %>
+
+			<p> New user? <%= link_to "Sign up!", signup_path %> </p>
+			
+		</div>
+	</div>
+</div>
+  <% end %>
+  <div id="footer">
+  </div>
 </div>

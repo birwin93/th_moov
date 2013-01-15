@@ -1,3 +1,5 @@
+$user-column-width: 220px;
+
 .flow {
 	height: 100%;
 	ul {
@@ -12,16 +14,25 @@
 	ul {
 		columns: 10px 1;
 		-webkit-columns: 210px 1;
-		-moz-columns: 190px auto;
+		-moz-columns: 200px auto;
 		-o-columns: 230px 1;
 
+		column-gap: 20px;
+		-webkit-column-gap: 20px;
 		-moz-column-gap: 20px;
+		-o-column-gap: 20px;
 		
-		/*
-		-moz-column-rule:3px outset #ff00ff; 
-		-webkit-column-rule:3px outset #ff00ff;
-		column-rule:3px outset #ff00ff;
-		*/
+	}
+}
+
+.user-flow {
+	ul {
+		columns: 150px auto;
+		-webkit-columns: $user-column-width auto;
+		-moz-columns: $user-column-width auto;
+		-o-columns: 150px auto;
+
+		-moz-column-gap: 20px;
 	}
 }
 
@@ -29,11 +40,31 @@
 	display: inline-block;
 }
 
-.event-item {
+.user-flow-item {
+	position: relative;
+	border: 2px solid gray;
+	margin: 0 0 20px 0;
+	padding: 0px;
+	width: $user-column-width;
+	background: white;
+}
+
+.event-flow-item {
 	width: 180px;
 	height: 180px;
 	margin: 10px 0;
 	border: 2px solid black;
+}
+
+.user-thumbnail {
+	width: 220px;
+	height: auto;
+}
+
+.user-name {
+	position: absolute;
+	bottom: 5px;
+	left: 5px;
 }
 
 

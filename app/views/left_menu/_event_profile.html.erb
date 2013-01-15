@@ -1,7 +1,7 @@
 <ul class="nav nav-tabs nav-stacked">
 	<% if current_user.events.include?(@event) %>
-		<li> <a href="#"> Leave <%=@event.name %> </a> </li>
+		<li> <a href="#"> Leave Event </a> </li>
 	<% else %>
-		
+		<%= link_to 'Join', join_event_path(@event), method: :post %>
 	<% end %>
 </ul>

@@ -8,22 +8,26 @@
 			<% end %>
 		</div>
 
-		<div class="loop-user-box columns-220">
-			<ul class="no-style">
+		<div class="flow user-flow" id="loop-users">
+			<ul>
 			<% @loop.users.each do |user| %>
-				<li> <div class="user-stream-item"> 
-					<%= image_tag user.avatar.url(:thumb) %>
-					<!-- <%= link_to user.full_name, user %>  -->
+				<li> <div class="flow-item user-flow-item"> 
+					<%= image_tag user.avatar.url(:medium), class: "user-thumbnail" %>
+					<%= link_to user.full_name, user, class: "user-name" %> 
 				</div></li>
 			<% end %>
 			</ul>
 		</div> 
 
 
-	<div class="loop-event-box events-box">
-		<ul class="no-style">
+	<div class="flow event-flow" id="loop-events">
+		<ul>
 			<% @loop.events.each do |event| %>
-				<li> <div class="stream-item"> <%= link_to event.name, event %></div> <li>
+				<li> 
+					<div class="flow-item event-flow-item"> 
+						<%= link_to event.name, event %>
+					</div>
+				</li>
 			<% end %>
 		</ul>
 	</div>

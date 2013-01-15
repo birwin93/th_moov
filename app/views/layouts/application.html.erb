@@ -12,13 +12,19 @@
 <body>
 
 
-<div class="container-fluid b-border" id="main">
+<div class="container-fluid" id="main">
   <div id="sidebar">
     <% if signed_in? %>
       <%= render 'left_menu/left_menu' %>
+      <ul class="nav" id="main-nav">
+        <li> <%= link_to "Me", user_path(current_user) %> </li>
+        <li> <%= link_to "Loops", loops_path %> </li>
+        <li> <%= link_to "Events", events_path %> </li>
+        <li> <a href="#"> Settings </a> </li>
+     </ul>
     <% end %>
   </div>
-  <div class="row-fluid clearfix">
+  <div class="row-fluid">
     <div id="inner-container">
       <div class="span12">
         <div class="body-container">
@@ -36,7 +42,6 @@
 </div>
 
 <%= render 'layouts/lower_navbar' %>
-
 
 <%= debug(params) if Rails.env.development? %>
 </body>

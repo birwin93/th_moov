@@ -1,12 +1,13 @@
-<h1>All events</h1>
-
-
-<div class="events-box">
-  <ul class="no-style event-stream">
-  <% @events.each do |event| %>
-    <li class="stream-item"> <%= link_to event.name, event %> </li>
-  <% end %>
-  </ul>
+<div class="flow event-flow">
+	<ul>
+		<% @events.each do |event| %>
+			<li> 
+				<div class="flow-item event-flow-item"> 
+					<%= link_to event.name, event %>
+				</div>
+			</li>
+		<% end %>
+	</ul>
 </div>
 
 
