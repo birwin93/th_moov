@@ -44,7 +44,7 @@ class LoopsController < ApplicationController
 
     respond_to do |format|
       if @loop.save
-        lm = current_user.loop_memberships.create(loop_id: @loop.id, author_id: current_user.id, creator: trued)
+        lm = current_user.loop_memberships.create(loop_id: @loop.id, author_id: current_user.id, creator: true)
         lm.accept!
         format.html { redirect_to @loop, notice: 'Loop was successfully created.' }
         format.json { render json: @loop, status: :created, location: @loop }
