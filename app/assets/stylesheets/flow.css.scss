@@ -45,7 +45,7 @@ $user-column-width: 220px;
 	border: 2px solid gray;
 	margin: 0 0 20px 0;
 	padding: 0px;
-	width: $user-column-width;
+	width: 130px;
 	background: white;
 }
 
@@ -71,7 +71,7 @@ $user-column-width: 220px;
 }
 
 .user-thumbnail {
-	width: 100px;
+	width: 130px;
 	height: auto;
 }
 
@@ -86,6 +86,12 @@ $user-column-width: 220px;
 
 .user-name {
 	color: white;
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	background: rgba(0,0,0,0.5);
+	width: 100%;
+	text-align: center;
 }
 
 
