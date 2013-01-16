@@ -3,8 +3,11 @@
 		<% @events.each do |event| %>
 			<li> 
 				<div class="flow-item event-flow-item"> 
-					<%= link_to event.name, event %>
-				</div>
+						<%= image_tag event.avatar.url(:medium), class: "event-medium" %>
+						<div class="flow-name-box">
+							<%= link_to event.name, event, class: 'event-name' %>
+						</div>
+					</div>
 			</li>
 		<% end %>
 	</ul>

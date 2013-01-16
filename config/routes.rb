@@ -33,6 +33,8 @@ ThMoov::Application.routes.draw do
   post "events/:id/join", to: "events#join", as: "join_event"
 
   post "/events/:event_id/loops/:loop_id/loop_event_shares", to: "loop_event_shares#create", as: 'share_event'
+  get "/loops/:loop_id/events/new", to: 'events#new', as: 'loop_new_event'
+  post "/loops/:loop_id/events", to: 'events#create', as: 'loop_create_event'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
