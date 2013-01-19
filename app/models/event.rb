@@ -19,5 +19,7 @@ class Event < ActiveRecord::Base
 
   has_many :loop_event_shares
   has_many :loops, through: :loop_event_shares
+
+  has_many :posts, as: :comment
   
 end

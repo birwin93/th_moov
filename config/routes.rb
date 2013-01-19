@@ -3,14 +3,18 @@ ThMoov::Application.routes.draw do
 
   
 
+  
+
   resources :events do
     resources :event_memberships
+    resources :posts
   end
 
 
   resources :loops do
     resources :loop_memberships
     resources :loop_event_shares
+    resources :posts
   end
 
 

@@ -1,0 +1,29 @@
+// Place all the styles related to the Posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.post-pic {
+	position: absolute;
+	left: 5px;
+	top: 5px;
+	width: 75px;
+	height: auto;
+}
+
+.post-content {
+	position: absolute;
+	left: 100px;
+	top: 5px;
+	width: 80%;
+}
+
+.chat-post {
+	position: relative;
+	border: 1px solid black;
+	height: 80px;
+}
+
+.chat-posts-box {
+	ul {
+		height: 100%;
+	}
+}

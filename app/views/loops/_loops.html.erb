@@ -1,6 +1,7 @@
 <% @loops.each do |loop| %>
 	<td>
 		<div class="loop-container">
+			<%= image_tag loop.avatar.url(:medium), class: "loop-pic" %>
 			<%= link_to loop.name, loop, class: 'loop-name' %>
 		</div>
 	</td>

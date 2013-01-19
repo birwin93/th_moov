@@ -36,6 +36,8 @@ class User < ActiveRecord::Base
 
   before_save { |user| user.email = email.downcase }
   before_save :create_remember_token
+
+  has_many :posts, as: :comment
   
   def full_name
   	"#{self.firstName} #{self.lastName}"

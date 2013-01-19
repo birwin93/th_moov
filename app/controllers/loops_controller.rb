@@ -15,6 +15,7 @@ class LoopsController < ApplicationController
   # GET /loops/1.json
   def show
     @user = User.new
+    @post = Post.new
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @loop }

@@ -1,20 +1,45 @@
-<div class="events-box">
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @event.name %>
-</p>
+<div class="share-box">
+	<%= render 'loop_event_shares/share_event_form' %>
+</div>
 
-<p>
-  <b>Description:</b>
-  <%= @event.description %>
-</p>
+<div class="info-container">
+	<div class="chat-box">
+		<div class="chat-submit-box">
+			<%= form_for([@event, @post], url: event_posts_path(@event)) do |f| %>
+				 <% if @post.errors.any? %>
+				   <div id="error_explanation">
+				     <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
 
-</br>
-</br>
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+			      <ul>
+			      <% @post.errors.full_messages.each do |msg| %>
+			        <li><%= msg %></li>
+			      <% end %>
+			      </ul>
+			    </div>
+			  <% end %>
+			  <div class="field">
+			    <%= f.text_field :content %>
+			  </div>
+			  <div class="actions">
+			    <%= f.submit %>
+			  </div>
+			<% end %>
+		</div>
+		<div class="chat-posts-box">
+			<ul class="no-style">
+			<% @event.posts.each do |post| %>
+				<li>
+					<div class="chat-post">
+						<%= image_tag post.user.avatar.url(:thumb), class: "post-pic" %>
+						<div class="post-content"> <%= post.content %> </div>
+					</div>
+				</li>
+			<% end %>
+			</ul>
+		</div>
+	</div>
 </div>
 
 <div class="share-box">

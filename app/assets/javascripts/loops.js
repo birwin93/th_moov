@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	$("#loop-users").hide();
-
+	$('.loop-info-box').hide();
 
 	var selected_label = $("#show-info");
 	selected_label.addClass("selected");
@@ -12,15 +12,17 @@ $(document).ready(function() {
 		//$("#loop-events").hide();
 		$("#loop-users").show();
 		$(".loop-info-box").hide();
+		$('.chat-box').hide();
 	});
 
-	$("#show-events").click(function() {
+	$("#chat").click(function() {
 		selected_label.removeClass("selected");
 		selected_label = $(this);
 		$(this).addClass("selected");
 		//$("#loop-events").show();
 		$("#loop-users").hide();
 		$(".loop-info-box").hide();
+		$('.chat-box').show();
 	});
 
 	$("#show-info").click(function() {
@@ -30,6 +32,7 @@ $(document).ready(function() {
 		//$("#loop-events").hide();
 		$("#loop-users").hide();
 		$(".loop-info-box").show();
+		$('.chat-box').hide();
 
 	});
 
