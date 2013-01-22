@@ -1,0 +1,9 @@
+development:
+  app_id: "409766955770633"
+  secret: "e0c1dea147be7ab254ca74f085f99b5e"
+test:
+  app_id: YOUR APP ID
+  secret: YOUR SECRET
+production:
+  app_id: YOUR APP ID
+  secret: YOUR SECRET
