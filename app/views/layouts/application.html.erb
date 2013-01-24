@@ -4,6 +4,7 @@
   <title> <%= full_title(yield(:title)) %> </title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tags %>
   <!--[if lt IE 9]>
   <scipt src="http://htmlshim.googlecode.com/svn/trunk/html5.js"></script>

@@ -1,0 +1,5 @@
+$(".message-box").append("<%= escape_javascript <div class='chat-post'>
+						<%= image_tag @parent.posts.last.user.avatar.url(:thumb), class: 'post-pic' %>
+						<div class='post-content'> <%= @parent.posts.last.content %> </div>
+					</div> %>");
+$("#new_message")[0].reset();

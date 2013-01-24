@@ -49,7 +49,7 @@ class PostsController < ApplicationController
     params[:post][:user_id] = current_user.id
 
     respond_to do |format|
-      if @parent.posts.create(params[:post])
+      if @parent.posts.create!(params[:post])
         format.html { redirect_to @parent, notice: 'Post was successfully created.' }
         format.json { render json: @parent, status: :created, location: @post }
       else

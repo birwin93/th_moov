@@ -92,4 +92,14 @@ class EventsController < ApplicationController
       render 'show'
     end
   end
+
+  def add_post
+    params[:post][:user_id] = current_user.id
+    @event = Event.find(params[:id])
+    @post = @event.posts.build(params[:post])
+    @post.save!
+
+    render :text => "alert('Hello, world!')",
+         :content_type => "text/javascript"
+  end
 end

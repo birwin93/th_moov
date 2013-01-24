@@ -14,7 +14,7 @@
 <div class="info-container">
 	<div class="chat-box">
 		<div class="chat-submit-box">
-			<%= form_for([@event, @post], url: event_posts_path(@event)) do |f| %>
+			<%= form_for([@event.id, @post], url: add_event_post_path(@event), remote: true) do |f| %>
 				 <% if @post.errors.any? %>
 				   <div id="error_explanation">
 				     <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -35,7 +35,7 @@
 			<% end %>
 		</div>
 		<div class="chat-posts-box">
-			<ul class="no-style">
+			<ul class="no-style message-box">
 			<% @event.posts.each do |post| %>
 				<li>
 					<div class="chat-post">

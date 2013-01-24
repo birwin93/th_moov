@@ -5,6 +5,8 @@ ThMoov::Application.routes.draw do
     resources :posts
   end
 
+  post 'events/:event_id/posts', to: "events#add_post", as: 'add_event_post'
+
   match 'auth/:provider/callback', to: 'sessions#create'
   match 'auth/failure', to: redirect('/')
 
@@ -14,7 +16,6 @@ ThMoov::Application.routes.draw do
     resources :loop_event_shares
     resources :posts
   end
-
 
   resources :users
 
