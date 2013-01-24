@@ -1,14 +1,12 @@
 ThMoov::Application.routes.draw do
  
-
-  
-
-  
-
   resources :events do
     resources :event_memberships
     resources :posts
   end
+
+  match 'auth/:provider/callback', to: 'sessions#create'
+  match 'auth/failure', to: redirect('/')
 
 
   resources :loops do

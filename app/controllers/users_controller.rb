@@ -9,6 +9,8 @@ class UsersController < ApplicationController
   def show 
   	@user = User.find(params[:id])
     @invitations = @user.loop_memberships.pending
+    @graph = Koala::Facebook::API.new(current_user.oauth_token)
+    @link = @graph.get_picture(@user.uid, type: "large")
   end
 
   def create 

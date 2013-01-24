@@ -14,13 +14,18 @@
 #  avatar_content_type :string(255)
 #  avatar_file_size    :integer
 #  avatar_updated_at   :datetime
+#  uid                 :integer
+#  provider            :string(255)
+#  oauth_token         :string(255)
+#  oauth_expires_at    :datetime
+#  name                :string(255)
 #
 
 class User < ActiveRecord::Base
   attr_accessible :email, :firstName, :lastName, :password, :password_confirmation, :avatar
 
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }
-  has_secure_password
+  #has_secure_password
 
 
 
@@ -30,17 +35,28 @@ class User < ActiveRecord::Base
   has_many :event_memberships
   has_many :events, through: :event_memberships
 
-  validates :firstName, :lastName, :email, presence: true
-  validates :email, uniqueness: { case_sensitive: false }
-  validates :password, presence: true, length: { minimum: 6 }
+  #validates :firstName, :lastName, :email, presence: true
+  #validates :email, uniqueness: { case_sensitive: false }
+  #validates :password, presence: true, length: { minimum: 6 }
 
-  before_save { |user| user.email = email.downcase }
+  #before_save { |user| user.email = email.downcase }
   before_save :create_remember_token
 
   has_many :posts, as: :comment
   
   def full_name
   	"#{self.firstName} #{self.lastName}"
+  end
+
+  def self.from_omniauth(auth)
+    where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
+      user.provider = auth.provider
+      user.uid = auth.uid
+      user.name = auth.info.name
+      user.oauth_token = auth.credentials.token
+      user.oauth_expires_at = Time.at(auth.credentials.expires_at)
+      user.save!
+    end
   end
 
   

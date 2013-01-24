@@ -14,6 +14,11 @@
 #  avatar_content_type :string(255)
 #  avatar_file_size    :integer
 #  avatar_updated_at   :datetime
+#  uid                 :integer
+#  provider            :string(255)
+#  oauth_token         :string(255)
+#  oauth_expires_at    :datetime
+#  name                :string(255)
 #
 
 require 'spec_helper'

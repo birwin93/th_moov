@@ -11,6 +11,16 @@
 			</li>
 		<% end %>
 	</ul>
+	<div class="profile-box">
+	<%= image_tag @link, class: "profile-pic" %>
+	<div class="profile-info">
+		<p> <%= @user.full_name %> </p>
+	</div>
+</div>
+
+<ul class="nav nav-tabs nav-stacked">
+	<li> <%= link_to "Logout", signout_path, method: 'delete' %> </li>
+</ul>
 </div>
 
 <div class="flow event-flow" id="loop-events">
