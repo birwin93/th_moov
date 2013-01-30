@@ -94,4 +94,37 @@ $user-column-width: 220px;
 	text-align: center;
 }
 
+#loop-flow {
+	width: 100%;
+	overflow-x: auto;
+	height: 150px;
+}
+
+.loop-flow-buffer {
+	float: left;
+	width: 270px;
+	height: 150px;
+}
+
+.loop-flow-item {
+	height: 150px;
+	width: 150px;
+	overflow: hidden;
+	position: relative;
+	float: left;
+	margin-right: 30px;
+}
+
+.loop-flow-name {
+	width: 100%;
+	position: absolute;
+	top: 50px;
+	text-align: center;
+	color: white;
+}
+
+.loop-flow-picture {
+	height: 150px;
+	width: 150px;
+}
 

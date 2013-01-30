@@ -19,6 +19,7 @@
 #  oauth_token         :string(255)
 #  oauth_expires_at    :datetime
 #  name                :string(255)
+#  pic_link            :string(255)
 #
 
 require 'spec_helper'

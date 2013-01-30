@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+	skip_before_filter :load_user_loops
+	
 	def create
 		#user = User.find_by_email(params[:session][:email].downcase)
 		#if user && user.authenticate(params[:session][:password])

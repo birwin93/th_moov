@@ -50,7 +50,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @parent.posts.create!(params[:post])
-        format.html { redirect_to @parent, notice: 'Post was successfully created.' }
+        format.html { redirect_to session[:previous_url] }
         format.json { render json: @parent, status: :created, location: @post }
       else
         format.html { render action: "new" }

@@ -1,0 +1,31 @@
+<div id="chat-loops">
+    <p style="text-align: center"> Your Loops </p>
+      <ul class="no-style">
+      <% @loops.each do |loop| %>
+        <li> <%= link_to loop.name, "#", class: "chat-button loop-#{loop.name.parameterize}" %> </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <% @loops.each do |loop| %>
+    <div class="chat-box" id="wall-<%= loop.name.parameterize %>"> 
+      <div class="chat-wall">
+        <ul class="no-style">
+          <% loop.posts.each do |post| %>
+            <li> 
+              <%= image_tag post.user.pic_link, class: "chat-pic" %>
+              <div class="chat-user-name"><%=post.user.name%></div>
+              <div class="chat-message"><%= post.content %></div>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+   
+      <%= form_for([loop, Post.new], url: loop_posts_path(loop)) do |f| %>
+            <div class="field chat-form">
+              <%= f.text_field :content %>
+            </div>
+      <% end %>
+  
+    </div>
+  <% end %> 

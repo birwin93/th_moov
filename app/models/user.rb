@@ -19,6 +19,7 @@
 #  oauth_token         :string(255)
 #  oauth_expires_at    :datetime
 #  name                :string(255)
+#  pic_link            :string(255)
 #
 
 class User < ActiveRecord::Base
@@ -55,6 +56,9 @@ class User < ActiveRecord::Base
       user.name = auth.info.name
       user.oauth_token = auth.credentials.token
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
+      graph = Koala::Facebook::API.new
+      link = graph.get_picture(user.uid, type: "square")
+      user.pic_link = link
       user.save!
     end
   end

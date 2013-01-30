@@ -1,0 +1,11 @@
+<div id="loop-flow">
+	<div class="loop-flow-buffer"></div>
+	<% @loops.each do |loop| %>
+		<div class="loop-flow-item">
+			<div class="loop-flow-name">
+				<%= loop.name %>
+			</div>
+			<%= link_to image_tag(loop.avatar.url(:thumb), class: "loop-flow-picture"), loop_path(loop) %>
+		</div>
+	<% end %> 
+</div>

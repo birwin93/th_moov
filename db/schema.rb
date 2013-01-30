@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130116195126) do
+ActiveRecord::Schema.define(:version => 20130129181808) do
 
   create_table "event_memberships", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -34,7 +34,10 @@ ActiveRecord::Schema.define(:version => 20130116195126) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.datetime "date"
   end
+
+  add_index "events", ["date"], :name => "index_events_on_date"
 
   create_table "loop_event_shares", :force => true do |t|
     t.integer  "loop_id"
@@ -95,6 +98,12 @@ ActiveRecord::Schema.define(:version => 20130116195126) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.integer  "uid"
+    t.string   "provider"
+    t.string   "oauth_token"
+    t.datetime "oauth_expires_at"
+    t.string   "name"
+    t.string   "pic_link"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

@@ -4,7 +4,14 @@ class LoopsController < ApplicationController
   before_filter :require_membership, except: [:index, :new, :create]
 
   def index
-    @loops = current_user.loops
+    @allEvents = []
+    @loops.each do |loop|
+      loop.events.each do |event|
+        unless @allEvents.include?(event)
+          @allEvents << event
+        end
+      end
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @loops }

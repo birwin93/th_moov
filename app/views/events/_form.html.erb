@@ -15,7 +15,10 @@
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
-  <div class="field" style="position:absolute;left: 300px;top:0px;">
+  <div class="field event-date-field">
+    <%= f.datetime_select :date %>
+  </div>
+  <div class="field" style="position:absolute;left: 300px;top:130px;">
     <%= f.label :description %><br />
     <%= f.text_area :description %>
   </div>

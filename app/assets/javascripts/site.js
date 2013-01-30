@@ -8,6 +8,8 @@ $(document).ready(function() {
   $('#main').height(conHeight);
   //$('#sidebar').height(sidebarHeight);
   $('#left-navbar').height(navHeight);
+  $('.chat-box').height(navHeight+20);
+  $('.chat-wall').height(navHeight-30);
 
   $(window).resize(function(){
     var conHeight = $('body').height() - 130;
@@ -16,6 +18,8 @@ $(document).ready(function() {
 	  $('#main').height(conHeight);
 	  //$('#sidebar').height(sidebarHeight);
 	  $('#left-navbar').height(navHeight);
+	  $('.chat-box').height(navHeight+20);
+	  $('.chat-wall').height(navHeight-30);
 	});
 
 	/*$('#lower-navbar').hover(
@@ -74,6 +78,29 @@ $(document).ready(function() {
     		console.log("nboom");
   		});
     }
+  });
+
+  var visibleChatScreen = $('.chat-box')[0];
+  var visLoopName = " ";
+
+  $('.chat-box').hide();
+
+  $('.chat-button').click(function() {
+
+  	$(visibleChatScreen).hide();
+
+  	var classes = $(this).attr('class');
+  	console.log('loading classes');
+  	console.log(classes);
+  	var loopName = "#wall-" + classes.substring(17);
+  	console.log(loopName);
+
+  	if (visLoopName != loopName) {
+  		$(loopName).show();
+  	} 
+  	visLoopName = loopName;
+  	visibleChatScreen = $(loopName);
+
   });
 
 });
