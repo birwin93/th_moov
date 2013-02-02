@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130130210705) do
+ActiveRecord::Schema.define(:version => 20130202193417) do
 
   create_table "event_memberships", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -38,6 +38,23 @@ ActiveRecord::Schema.define(:version => 20130130210705) do
   end
 
   add_index "events", ["date"], :name => "index_events_on_date"
+
+  create_table "locate_tags", :force => true do |t|
+    t.integer  "location_id"
+    t.integer  "event_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "locations", :force => true do |t|
+    t.string   "city"
+    t.string   "state"
+    t.string   "address"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "loop_event_shares", :force => true do |t|
     t.integer  "loop_id"
@@ -120,6 +137,9 @@ ActiveRecord::Schema.define(:version => 20130130210705) do
     t.datetime "oauth_expires_at"
     t.string   "name"
     t.string   "pic_link"
+    t.float    "longitude"
+    t.float    "latitude"
+    t.string   "ip_address"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

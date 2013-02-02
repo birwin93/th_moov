@@ -232,6 +232,7 @@ $menu-width: 220px;
 	@include box-sizing;
 	position: fixed;
 	bottom: 60px;
+	z-index: 1000
 }
 
 .debug-button {
@@ -299,5 +300,17 @@ $menu-width: 220px;
 	left: 50%;
 	margin-left: -125px;
 	bottom: 370px;
+}
+
+.location-box {
+	position: fixed;
+	top: 20px;
+	left: 20px;
+	width: 1000px;
+	height: 50px;
+	background: rgba(0, 0, 0, 0.5);
+	color: white;
+	z-index: 500;
+	text-align: center;
 }
 

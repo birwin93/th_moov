@@ -11,6 +11,7 @@
 #  avatar_content_type :string(255)
 #  avatar_file_size    :integer
 #  avatar_updated_at   :datetime
+#  date                :datetime
 #
 
 class Event < ActiveRecord::Base
@@ -29,6 +30,8 @@ class Event < ActiveRecord::Base
   has_many :taggings
   has_many :tags, through: :taggings
 
+  belongs_to :location
+
   def self.tagged_with(name)
   	Tag.find_by_name!(name).events
   end
@@ -41,6 +44,10 @@ class Event < ActiveRecord::Base
   	self.tags = names.split(", ").map do |n|
   		Tag.where(name: n.strip).first_or_create!
   	end
+  end
+
+  def location=(city)
+    Location.find_or_create_by_city(city)
   end
   
 end

@@ -20,14 +20,18 @@
 #  oauth_expires_at    :datetime
 #  name                :string(255)
 #  pic_link            :string(255)
+#  longitude           :float
+#  latitude            :float
+#  ip_address          :string(255)
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :email, :firstName, :lastName, :password, :password_confirmation, :avatar
+
+  attr_accessible :email, :firstName, :lastName, :password, :password_confirmation, :avatar, :ip_address, 
+                  :longitude, :latitude
 
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }
   #has_secure_password
-
 
 
   has_many :loop_memberships
@@ -42,6 +46,7 @@ class User < ActiveRecord::Base
 
   #before_save { |user| user.email = email.downcase }
   before_save :create_remember_token
+  before_save :save_ip
 
   has_many :posts, as: :comment
   

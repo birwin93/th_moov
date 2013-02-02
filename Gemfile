@@ -5,6 +5,7 @@ gem 'bootstrap-sass', '2.1'
 gem 'koala'
 gem 'omniauth-facebook'
 gem "paperclip", "~> 3.0"
+gem "geocoder"
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
