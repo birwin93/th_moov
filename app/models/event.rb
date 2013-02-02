@@ -14,9 +14,9 @@
 #
 
 class Event < ActiveRecord::Base
-  attr_accessible :description, :name, :avatar
+  attr_accessible :description, :name, :avatar, :tag_list, :date
 
-   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }
 
   has_many :event_memberships
   has_many :users, through: :event_memberships
@@ -25,5 +25,22 @@ class Event < ActiveRecord::Base
   has_many :loops, through: :loop_event_shares
 
   has_many :posts, as: :comment
+
+  has_many :taggings
+  has_many :tags, through: :taggings
+
+  def self.tagged_with(name)
+  	Tag.find_by_name!(name).events
+  end
+
+  def tag_list
+  	tags.map(&:name).join(", ")
+  end
+
+  def tag_list=(names)
+  	self.tags = names.split(", ").map do |n|
+  		Tag.where(name: n.strip).first_or_create!
+  	end
+  end
   
 end

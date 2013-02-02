@@ -2,11 +2,32 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    if params.has_key?(:search)
+      @events = []
+      tag = params[:search].split(' ')[0]
+      Event.tagged_with(tag).each do |event|
+        unless @events.include?(event)
+          @events << event
+        end
+      end
+    else 
+      @events = Event.all
+    end
+    
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @events }
+    end
+  end
+
+  def search
+    @events = []
+    tag = params[:search].split(' ')[0]
+    Event.tagged_with(tag).each do |event|
+      unless @events.include?(event)
+        @events << event
+      end
     end
   end
 

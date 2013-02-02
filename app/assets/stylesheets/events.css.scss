@@ -17,3 +17,20 @@
 		width: 100px;
 	}
 }
+
+
+.event-searchbox {
+	width: 100%;
+	position: fixed;
+	left: 0px;
+	bottom: 0px;
+	height: 130px;
+
+	#search {
+		height: 100px;
+		width: 100%;
+		font-size: 40px;
+		margin-top: 10px;
+		text-align: center;
+	}
+}

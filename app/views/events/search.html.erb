@@ -14,9 +14,7 @@
 </div>
 
 <div class="event-searchbox">
-	<%= form_tag(events_path, method: "get") do %>
-		<%= text_field_tag :search, params[:search] %>
+	<%= form_tag(search_path, method: "get") do %>
+		<%= text_field_tag(:search) %>
 	<% end %>
 </div>
-
-

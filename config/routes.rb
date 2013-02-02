@@ -1,12 +1,14 @@
 ThMoov::Application.routes.draw do
  
+  #get 'events/search/:search', to: "events#search", as: "search"
+
   resources :events do
     resources :event_memberships
     resources :posts
   end
 
   post 'events/:event_id/posts', to: "events#add_post", as: 'add_event_post'
-
+  
   match 'auth/:provider/callback', to: 'sessions#create'
   match 'auth/failure', to: redirect('/')
 

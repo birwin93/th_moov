@@ -15,9 +15,16 @@
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
+
   <div class="field event-date-field">
     <%= f.datetime_select :date %>
   </div>
+
+  <div class="field">
+    <%= f.label :tag_list, "Tags (Separate by Comma)" %><br />
+    <%= f.text_field :tag_list %>
+  </div>
+
   <div class="field" style="position:absolute;left: 300px;top:130px;">
     <%= f.label :description %><br />
     <%= f.text_area :description %>
