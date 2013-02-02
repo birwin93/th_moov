@@ -20,9 +20,6 @@
 #  oauth_expires_at    :datetime
 #  name                :string(255)
 #  pic_link            :string(255)
-#  longitude           :float
-#  latitude            :float
-#  ip_address          :string(255)
 #
 
 class User < ActiveRecord::Base
@@ -46,7 +43,6 @@ class User < ActiveRecord::Base
 
   #before_save { |user| user.email = email.downcase }
   before_save :create_remember_token
-  before_save :save_ip
 
   has_many :posts, as: :comment
   

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130202193417) do
+ActiveRecord::Schema.define(:version => 20130202211750) do
 
   create_table "event_memberships", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -137,9 +137,6 @@ ActiveRecord::Schema.define(:version => 20130202193417) do
     t.datetime "oauth_expires_at"
     t.string   "name"
     t.string   "pic_link"
-    t.float    "longitude"
-    t.float    "latitude"
-    t.string   "ip_address"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

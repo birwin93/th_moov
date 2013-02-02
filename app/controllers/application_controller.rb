@@ -14,6 +14,7 @@ class ApplicationController < ActionController::Base
      # current_user.save!
     #else 
     #spot = request.ip
+    #request.ip = "67.194.116.243"
     @city = request.location.city
     #end
    

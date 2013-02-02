@@ -20,9 +20,6 @@
 #  oauth_expires_at    :datetime
 #  name                :string(255)
 #  pic_link            :string(255)
-#  longitude           :float
-#  latitude            :float
-#  ip_address          :string(255)
 #
 
 require 'spec_helper'

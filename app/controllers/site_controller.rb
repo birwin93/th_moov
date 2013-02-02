@@ -8,6 +8,8 @@ class SiteController < ApplicationController
   	if signed_in?
   		redirect_to current_user
   	end
+
+    @city = request.location.city
   end
 
   def about
