@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130202211750) do
+ActiveRecord::Schema.define(:version => 20130202213958) do
 
   create_table "event_memberships", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -93,6 +93,18 @@ ActiveRecord::Schema.define(:version => 20130202211750) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
   end
+
+  create_table "organizations", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "password_digest"
+    t.string   "remember_token"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "organizations", ["name"], :name => "index_organizations_on_name"
+  add_index "organizations", ["remember_token"], :name => "index_organizations_on_remember_token"
 
   create_table "posts", :force => true do |t|
     t.integer  "user_id"

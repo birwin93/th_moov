@@ -8,16 +8,13 @@ class ApplicationController < ActionController::Base
   before_filter :get_location
 
   def get_location
-    #unless current_user.ip_address
-     # current_user.ip_address = request.ip
-     # @city = ""
-     # current_user.save!
-    #else 
-    #spot = request.ip
-    #request.ip = "67.194.116.243"
-    @city = request.location.city
-    #end
-   
+
+    if Rails.env.development?
+      @city = "Ann Arbor, MI"
+    else
+      @city = "#{request.location.city}, #{request.state_code}"
+    end
+  
   end
 
   def parse_facebook_cookies
@@ -25,7 +22,9 @@ class ApplicationController < ActionController::Base
 	end
 
 	def load_user_loops 
-		@loops = current_user.loops
+    if signed_in?
+		  @loops = current_user.loops
+    end
 	end
 
   def store_urls

@@ -13,7 +13,7 @@ $user-column-width: 220px;
 .event-flow {
 	ul {
 		columns: 10px 1;
-		-webkit-columns: 210px 1;
+		-webkit-columns: 200px auto;
 		-moz-columns: 200px auto;
 		-o-columns: 230px 1;
 
@@ -94,10 +94,15 @@ $user-column-width: 220px;
 	text-align: center;
 }
 
-#loop-flow {
-	width: 100%;
-	overflow-x: auto;
-	height: 150px;
+.loop-flow {
+	ul {
+		columns: 150 auto;
+		-webkit-columns: 150 auto;
+		-moz-columns: 150 auto;
+		-o-columns: 150 auto;
+		-moz-column-gap: 20px;
+	}
+	background: yellow;
 }
 
 .loop-flow-buffer {

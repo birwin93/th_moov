@@ -1,15 +1,56 @@
 <% provide(:title, "") %>
+<% flash.each do |key, value| %>
+            <div class="center alert alert-<%= key %>">
+              <%= value %>
+            </div>
+          <% end %>
 
-<div class="landing-title">
-	Th Moov
+<div id= "betatag"></div>
+<div id = "logotype"></div>
+
+<div class="landing-container">
+	<div class="landing-log" id="landing-start">
+		<div id = "log-top">
+			<h1>Discover Together</h1>
+			<h5>Event finding, sharing, and going, with your group.</h5>
+		</div>
+		<div id="log-bottom">
+			<div id = "ulog"></div>
+			<div id = "olog"></div>
+		</div>
+	</div>
+
+	<div class="landing-log" id="landing-user">
+		<%= render 'shared/loginbox' %>
+		<a class="landing-back">Back</a>
+	</div>
+
+	<div class="landing-log" id="landing-org">
+		<%= render 'shared/org_loginbox' %>
+		<a class="landing-back">Back</a>
+	</div>
+
+
+	<div class="location-box"></div>
+
+
+
+	<div class="fb-login">
+		<%= link_to "Sign in with Facebook", "/auth/facebook", id: "fb-sign-in" %>
+	</div>
+
 </div>
 
-<div class="landing-subtitle">
-	Discover Together
-</div>
 
-<div class="fb-login">
-	<%= link_to "Sign in with Facebook", "/auth/facebook", id: "fb-sign-in" %>
-</div>
 
-<%= render 'shared/loginbox' %>
+
+
+
+
+
+
+
+
+
+
+	

@@ -1,5 +1,8 @@
 ThMoov::Application.routes.draw do
  
+  resources :organizations
+
+
   #get 'events/search/:search', to: "events#search", as: "search"
 
   resources :events do
@@ -22,6 +25,9 @@ ThMoov::Application.routes.draw do
   resources :users
 
   resources :sessions, only: [:create, :destroy]
+  resources :organization_sessions, only: [:create, :destroy]
+
+  match "/organization/logout", to: "organization_sessions#destroy", as: "org_logout"
 
   root to: "site#landing"
 

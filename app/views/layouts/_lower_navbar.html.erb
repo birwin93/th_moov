@@ -40,27 +40,9 @@
 <div class="navbar navbar-fixed-bottom" id="lower-navbar">
 	<% if signed_in? %>
 	 <%= render "/shared/loop_flow" %>
-   <% else %>
-   <div class="signin-box">
-	<a class="signin-exit-button">X</a>
-	<div class="row">
-		<div class="span6 offset3">
-			<%= form_for(:session, url: sessions_path) do |f| %>
-				<%= f.label :email %>
-				<%= f.text_field :email %>
-
-				<%= f.label :password %>
-				<%= f.password_field :password %>
-
-				<%= f.submit "Login" %>
-			<% end %>
-
-			<p> New user? <%= link_to "Sign up!", signup_path %> </p>
-			
-		</div>
-	</div>
+	<% end %>
 </div>
-  <% end %>
+
   <div id="footer">
-  </div>
+  </div> 
 </div>
