@@ -1,18 +1,16 @@
 <div class="flow event-flow" id="loop-events">
-	<ul>
-		<% @allEvents.each do |event| %>
+	<% @allEvents.each do |event| %>
 		
-				<li> 
+			
 					<div class="flow-item event-flow-item"> 
 						<%= image_tag event.avatar.url(:medium), class: "event-medium" %>
 						<div class="flow-name-box">
 							<%= link_to event.name, event, class: 'event-name' %>
 						</div>
 					</div>
-				</li>
+			
 			<% end %>
 
-	</ul>
 </div>
 
 

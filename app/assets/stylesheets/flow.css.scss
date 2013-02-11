@@ -2,16 +2,16 @@ $user-column-width: 220px;
 
 .flow {
 	height: 100%;
-	ul {
+	/*ul {
 		list-style: none;
 		margin: 0px;
 		padding: 0px;
 		height: 100%;
-	}
+	}*/
 }
 
 .event-flow {
-	ul {
+	/*ul {
 		columns: 10px 1;
 		-webkit-columns: 200px auto;
 		-moz-columns: 200px auto;
@@ -22,7 +22,7 @@ $user-column-width: 220px;
 		-moz-column-gap: 20px;
 		-o-column-gap: 20px;
 		
-	}
+	}*/
 }
 
 .user-flow {
@@ -37,7 +37,9 @@ $user-column-width: 220px;
 }
 
 .flow-item {
-	display: inline-block;
+	//display: inline-block;
+	float: left;
+	margin: 0 20px 20px 0;
 }
 
 .user-flow-item {
@@ -52,8 +54,12 @@ $user-column-width: 220px;
 .event-flow-item {
 	width: 180px;
 	height: 180px;
-	margin: 10px 0;
+	//margin: 10px 0;
 	position: relative;
+}
+.event-medium {
+	height: 180px;
+	width: 180px;
 }
 
 .event-name {
@@ -102,7 +108,7 @@ $user-column-width: 220px;
 		-o-columns: 150 auto;
 		-moz-column-gap: 20px;
 	}
-	background: yellow;
+	//background: yellow;
 }
 
 .loop-flow-buffer {

@@ -7,6 +7,7 @@
 
 <div id= "betatag"></div>
 <div id = "logotype"></div>
+<div id= "infinitysign"></div>
 
 <div class="landing-container">
 	<div class="landing-log" id="landing-start">
@@ -22,6 +23,9 @@
 
 	<div class="landing-log" id="landing-user">
 		<%= render 'shared/loginbox' %>
+		<div class="fb-login">
+		<%= link_to "Sign in with Facebook", "/auth/facebook", id: "fb-sign-in" %>
+	</div>
 		<a class="landing-back">Back</a>
 	</div>
 
@@ -33,11 +37,6 @@
 
 	<div class="location-box"></div>
 
-
-
-	<div class="fb-login">
-		<%= link_to "Sign in with Facebook", "/auth/facebook", id: "fb-sign-in" %>
-	</div>
 
 </div>
 

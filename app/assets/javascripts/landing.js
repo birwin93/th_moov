@@ -18,13 +18,17 @@ $(document).ready(function() {
 		$('#landing-org').show();
 	});
 
-	//var height = $('body').height();
-	//$('.landing-container').height(height-60);
-	//$('#log-top').height(height-60-294);
-	//$(window).resize(function(){
-		//height = $('body').height();
-		//$('.landing-container').height(height-60);
-		//$('#log-top').height(height-60-294);
-	//});
+	var height = $('body').height();
+	$('.landing-container').height(height-60);
+	$('.landing-log').css('top', (height-610)/2 + 'px');
+	$(window).resize(function(){
+		height = $('body').height();
+		$('.landing-container').height(height-60);
+		if ($('.landing-container').height() >= 600) {
+			$('.landing-log').css('top', (height-610)/2 + 'px');
+		} else {
+			$('.landing-log').css('top', '0px');
+		}
+	});
 
 });

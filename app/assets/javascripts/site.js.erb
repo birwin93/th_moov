@@ -21,6 +21,15 @@ $(document).ready(function() {
 	  $('.chat-box').height(navHeight+20);
 	  $('.chat-wall').height(navHeight-30);
 	});
+  $('.event-flow').imagesLoaded( function(){
+		$('.event-flow').isotope({
+	    // options
+	    layoutMode: 'masonryHorizontal',
+	  	cellsByRow: {
+	    	rowHeight: $('event-flow').height()
+	 		}
+	  });
+	 });
 
 	/*$('#lower-navbar').hover(
 		function() {
