@@ -31,6 +31,7 @@ class Event < ActiveRecord::Base
   has_many :tags, through: :taggings
 
   belongs_to :location
+  belongs_to :organization
 
   def self.tagged_with(name)
   	Tag.find_by_name!(name).events

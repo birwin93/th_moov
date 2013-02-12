@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130202213958) do
+ActiveRecord::Schema.define(:version => 20130211043120) do
 
   create_table "event_memberships", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(:version => 20130202213958) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.datetime "date"
+    t.integer  "location_id"
   end
 
   add_index "events", ["date"], :name => "index_events_on_date"

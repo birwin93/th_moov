@@ -1,6 +1,8 @@
 ThMoov::Application.routes.draw do
  
-  resources :organizations
+  resources :organizations do
+    resources :events
+  end
 
 
   #get 'events/search/:search', to: "events#search", as: "search"
@@ -9,6 +11,7 @@ ThMoov::Application.routes.draw do
     resources :event_memberships
     resources :posts
   end
+
 
   post 'events/:event_id/posts', to: "events#add_post", as: 'add_event_post'
   

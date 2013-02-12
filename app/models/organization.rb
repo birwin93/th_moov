@@ -10,6 +10,8 @@ class Organization < ActiveRecord::Base
   validates :password, presence: true, length: { minimum: 6 }
   before_save { |user| user.email = email.downcase }
 
+  has_many :events
+
   private
   	def create_remember_token
   		self.remember_token = SecureRandom.urlsafe_base64

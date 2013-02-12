@@ -46,7 +46,11 @@ class EventsController < ApplicationController
   # GET /events/new.json
   def new
     @event = Event.new
-    @loop = Loop.find(params[:loop_id])
+    if params.has_key?(:loop_id)
+      @loop = Loop.find(params[:loop_id])
+    else
+      @organization = Organization.find(params[:organization_id])
+    end
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @event }
@@ -62,7 +66,11 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = Event.new(params[:event])
-    @loop = Loop.find(params[:loop_id])
+    if params.has_key?(:loop_id)
+      @loop = Loop.find(params[:loop_id])
+    else
+      @organization = Organization.find(params[:organization_id])
+    end
     respond_to do |format|
       if @event.save
         @loop.loop_event_shares.create(event_id: @event.id)
