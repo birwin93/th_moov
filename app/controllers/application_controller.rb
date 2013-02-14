@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
     if Rails.env.development?
       @city = "Ann Arbor, MI"
     else
-      @city = "#{request.location.city}, #{request.state_code}"
+      @city = "Ann Arbor, MI" #{request.location.city}, #{request.state_code}"
     end
   
   end
