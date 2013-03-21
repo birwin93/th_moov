@@ -5,5 +5,5 @@ test:
   app_id: YOUR APP ID
   secret: YOUR SECRET
 production:
-  app_id: YOUR APP ID
-  secret: YOUR SECRET
+  app_id: "351912921589711"
+  secret: "7bc83013f8d014fbc881b373a2980ebf"

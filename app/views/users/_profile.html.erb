@@ -1,0 +1,11 @@
+<div id="profile">
+	<%= image_tag @link, id: "profile-pic" %>
+	<div id="profile-info">
+		<%= current_user.name  %>
+		<%= @city %>
+	</div>
+	<a id="setting-btn">*</a>
+	<div id="profile-setting">
+		<%= link_to "Logout", signout_path, method: 'delete' %>
+	</div>
+</div>

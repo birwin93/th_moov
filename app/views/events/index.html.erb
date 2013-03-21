@@ -1,20 +1,39 @@
-<div class="flow event-flow" id="loop-events">
-			<% @events.each do |event| %>
-				<div> 
-					<div class="flow-item event-flow-item"> 
-						<%= image_tag event.avatar.url(:medium), class: "event-medium" %>
-						<div class="flow-name-box">
-							<%= link_to event.name, event, class: 'event-name' %>
-						</div>
-					</div>
-				</div>
-			<% end %>
+<% if @events.count == 0 %>
+	<div class="no-results-message">
+		We're sorry. No events found.
 	</div>
+<% else %>
+		<div class="event-flow">
+			<div class="flow-buffer">
+				
+				<h1>	Discover awesome events <h1>
+				<h2>	because events are awesome. <h2>
+				
+			</div>
+		</div>
+		<% organize_by_date(@events).each do |event_by_date| %>
+			<div class="event-flow">
+					<%= event_by_date.count do |event| %>
+						
+						<div class="flow-item event-flow-item"> 
+							<%= filepicker_image_tag event.filepicker_url, width: 1000, height: 1000, fit: 'crop' %>
+							<div class = "container-cover">
+								<h1> <%= event.name %> </h1>
+								<h2>Date</h2>
+								<h3>7:45</h3>
+								<h4>pm</h4>
+							</div>
+						</div>
+						
+					<% end %>
+				</div>
+	<% end %>
+<% end %>
 
-<div class="event-searchbox">
+<!-- <div class="event-searchbox">
 	<%= form_tag(events_path, method: "get") do %>
 		<%= text_field_tag :search, params[:search] %>
 	<% end %>
-</div>
+</div> -->
 
 

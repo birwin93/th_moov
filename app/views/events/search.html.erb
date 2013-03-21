@@ -1,17 +1,23 @@
-<div class="flow event-flow">
-	<ul>
-		<% @events.each do |event| %>
-			<li> 
-				<div class="flow-item event-flow-item"> 
-						<%= image_tag event.avatar.url(:medium), class: "event-medium" %>
-						<div class="flow-name-box">
-							<%= link_to event.name, event, class: 'event-name' %>
+<% if @events.count == 0 %>
+	<div class="no-results-message">
+		We're sorry. No events found.
+	</div>
+<% else %>
+		<% organize_by_date(@events).each do |event_by_date| %>
+			<div class="flow event-flow" id="loop-events">
+				<%= event_by_date.count do |event| %>
+					<div> 
+						<div class="flow-item event-flow-item"> 
+							<%= filepicker_image_tag event.filepicker_url, width: 160, height: 160, fit: 'clip' %>
+							<div class="flow-name-box">
+								<%= link_to event.name, event, class: 'event-name' %>
+							</div>
 						</div>
 					</div>
-			</li>
+				<% end %>
+			</div>
 		<% end %>
-	</ul>
-</div>
+<% end %>
 
 <div class="event-searchbox">
 	<%= form_tag(search_path, method: "get") do %>

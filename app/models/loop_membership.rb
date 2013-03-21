@@ -25,6 +25,10 @@ class LoopMembership < ActiveRecord::Base
   belongs_to :author, class_name: "User"
 
   before_validation { |lm| lm.status = "pending" if lm.new_record? }
+  
+  def is_creator?
+    self.creator
+  end
 
   def accept! 
   	self.update_attributes(status: "accepted")

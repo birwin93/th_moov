@@ -2,34 +2,61 @@ $(document).ready(function() {
 
 	/* fill in front page */
 	
-	var conHeight = $('body').height() - 130;
+	var conHeight = $('body').height();
+	var conWidth = $('body').width() - 80;
 	var navHeight = conHeight * 0.8;
 	//var sidebarHeight = conHeight + 130;
   $('#main').height(conHeight);
+  $('.event-flow').height(conHeight-60);
   //$('#sidebar').height(sidebarHeight);
   $('#left-navbar').height(navHeight);
   $('.chat-box').height(navHeight+20);
   $('.chat-wall').height(navHeight-30);
 
   $(window).resize(function(){
-    var conHeight = $('body').height() - 130;
+    var conHeight = $('body').height();
+    var conWidth = $('body').width() - 80;
 		var navHeight = conHeight * 0.8;
+		$('.event-flow').height(conHeight-60);
 		//var sidebarHeight = conHeight + 130;
 	  $('#main').height(conHeight);
 	  //$('#sidebar').height(sidebarHeight);
 	  $('#left-navbar').height(navHeight);
 	  $('.chat-box').height(navHeight+20);
 	  $('.chat-wall').height(navHeight-30);
+	  var bodyCWidth = 0;
+	  var i = 0;
+	  $('.event-flow-item').each(function() {
+	  	bodyCWidth += $(this).width() + 100;
+	  });
+
+	  $('.body-container').width(bodyCWidth+100);
 	});
+
+  	var bodyCWidth = 0;
+	  var i = 0;
+ 		$('.event-flow-item').each(function() {
+	  	bodyCWidth += $(this).width() + 100;
+	  });
+
+	  $('.body-container').width(bodyCWidth+100);
+
+	  $('.body-container').width(bodyCWidth+100);
+
   $('.event-flow').imagesLoaded( function(){
 		$('.event-flow').isotope({
-	    // options
-	    layoutMode: 'masonryHorizontal',
-	  	cellsByRow: {
-	    	rowHeight: $('event-flow').height()
-	 		}
-	  });
+    	layoutMode: 'masonryHorizontal',
+    	masonryHorizontal: {
+        rowHeight: 600
+    	}
+		});
 	 });
+
+  $("#profile-setting").hide();
+
+  $("#setting-btn").click(function() {
+  	$("#profile-setting").toggle();
+  })
 
 	/*$('#lower-navbar').hover(
 		function() {
@@ -113,4 +140,7 @@ $(document).ready(function() {
 
   });
 
+  console.log($('.inner-loop-flow').width());
+  $('.inner-loop-flow').width(3000);
+  console.log($('.inner-loop-flow').width());
 });

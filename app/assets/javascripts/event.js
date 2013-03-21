@@ -7,4 +7,6 @@ $(document).ready(function() {
 		//var c =(String.fromCharCode(event.which));
 		//$('.event-searchbox input').val($('.event-searchbox input').val() + c);
 	});
+
+	$('#datepicker').datepicker();
 });

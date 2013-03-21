@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   include SessionsHelper
+  include EventsHelper
 
   before_filter :parse_facebook_cookies
   before_filter :load_user_loops
@@ -18,7 +19,11 @@ class ApplicationController < ActionController::Base
   end
 
   def parse_facebook_cookies
-  	@facebook_cookies ||= Koala::Facebook::OAuth.new.get_user_info_from_cookie(cookies)
+    @facebook_cookies ||= Koala::Facebook::OAuth.new.get_user_info_from_cookie(cookies)
+    if signed_in?
+      @graph = Koala::Facebook::API.new(current_user.oauth_token)
+      @link = @graph.get_picture(current_user.uid, type: "large")
+    end
 	end
 
 	def load_user_loops 

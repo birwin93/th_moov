@@ -15,7 +15,7 @@
 #
 
 class Loop < ActiveRecord::Base
-  attr_accessible :description, :name, :privacy, :avatar
+  attr_accessible :description, :name, :privacy, :avatar, :filepicker_url
 
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>", :loop => "150x150>" }
 

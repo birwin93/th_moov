@@ -2,10 +2,10 @@ class LoopEventSharesController < ApplicationController
   # GET /loop_event_shares
   # GET /loop_event_shares.json
 
-  before_filter :get_loop, except: [:create]
+  #before_filter :get_loop, except: [:create]
 
   def index
-    @loop_event_shares = LoopEventShare.all
+    #@loop_event_shares = LoopEventShare.all
 
     respond_to do |format|
       format.html # index.html.erb

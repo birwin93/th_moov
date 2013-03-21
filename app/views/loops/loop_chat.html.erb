@@ -1,0 +1,35 @@
+<div class="chat-box">
+			<div class="chat-submit-box">
+				<%= form_for([@loop, @post], url: loop_posts_path(@loop)) do |f| %>
+				  <% if @post.errors.any? %>
+				    <div id="error_explanation">
+				      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+				      <ul>
+				      <% @post.errors.full_messages.each do |msg| %>
+				        <li><%= msg %></li>
+				      <% end %>
+				      </ul>
+				    </div>
+				  <% end %>
+				  <div class="field">
+				    <%= f.text_field :content %>
+				  </div>
+				  <div class="actions">
+				    <%= f.submit %>
+				  </div>
+				<% end %>
+			</div>
+			<div class="chat-posts-box">
+				<ul class="no-style">
+				<% @loop.posts.each do |post| %>
+					<li>
+						<div class="chat-post">
+							<%= image_tag post.user.avatar.url(:thumb), class: "post-pic" %>
+							<div class="post-content"> <%= post.content %> </div>
+						</div>
+					</li>
+				<% end %>
+				</ul>
+			</div>
+		</div>

@@ -1,8 +1,7 @@
 <div class="left-navbar">
 
-	<% if current_page?(user_path(current_user)) %>
-		<%= render '/layouts/profile' %>
-	<% elsif params[:controller] == 'loops' && params[:action] == 'show' %>
+
+	<% if params[:controller] == 'loops' && params[:action] == 'show' %>
 		<%= render '/left_menu/loop_profile' %>
 	<% end %> 
 

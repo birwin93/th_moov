@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130211043120) do
+ActiveRecord::Schema.define(:version => 20130228041907) do
 
   create_table "event_memberships", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -36,6 +36,9 @@ ActiveRecord::Schema.define(:version => 20130211043120) do
     t.datetime "avatar_updated_at"
     t.datetime "date"
     t.integer  "location_id"
+    t.string   "isVenue"
+    t.string   "filepicker_url"
+    t.string   "actual_url"
   end
 
   add_index "events", ["date"], :name => "index_events_on_date"
@@ -93,6 +96,7 @@ ActiveRecord::Schema.define(:version => 20130211043120) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string   "filepicker_url"
   end
 
   create_table "organizations", :force => true do |t|

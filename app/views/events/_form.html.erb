@@ -18,7 +18,12 @@
   </div>
 
   <div class="field event-date-field">
-    <%= f.datetime_select :date %>
+    <%= f.datetime_picker 'date', :dateFormat => "yy-mm-dd" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :location %>
+    <%= f.text_field :location %>
   </div>
 
   <div class="field">
@@ -31,7 +36,10 @@
     <%= f.text_area :description %>
   </div>
 
-  <%= f.file_field :avatar %>
+  <div>
+    <%= f.label :filepicker_url, "Upload Event Avatar:" %>
+    <%= f.filepicker_field :filepicker_url %>
+  </div>
 
   <div class="actions">
     <%= f.submit %>
@@ -57,7 +65,7 @@
   </div>
 
   <div class="field event-date-field">
-    <%= f.datetime_select :date %>
+    <%= f.datetime_picker 'date', :dateFormat => "yy-mm-dd" %>
   </div>
 
   <div class="field">
@@ -70,7 +78,10 @@
     <%= f.text_area :description %>
   </div>
 
-  <%= f.file_field :avatar %>
+  <div class="field">
+    <%= f.label :filepicker_url, "Upload Event Avatar:" %>
+    <%= f.filepicker_field :filepicker_url %>
+  </div>
 
   <div class="actions">
     <%= f.submit %>

@@ -1,15 +1,13 @@
 <div class="flow event-flow" id="loop-events">
-	<% @allEvents.each do |event| %>
-		
-			
-					<div class="flow-item event-flow-item"> 
-						<%= image_tag event.avatar.url(:medium), class: "event-medium" %>
-						<div class="flow-name-box">
-							<%= link_to event.name, event, class: 'event-name' %>
-						</div>
-					</div>
-			
-			<% end %>
+	
+	<% @loops.each do |loop| %>
+			<div class="event-flow-item flow-item">
+				<div class="loop-flow-name">
+					<%= loop.name %>
+				</div>
+				<%= filepicker_image_tag loop.filepicker_url, width: 250, height: 150, fit: 'clip' %>
+			</div>
+		<% end %> 
 
 </div>
 

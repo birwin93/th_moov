@@ -1,7 +1,7 @@
 <% provide(:title, @user.firstName) %>
 
 
-<div class="info-container">
+<div style="width:200px">
 	<ul>
 		<% @invitations.each do |i| %>
 			<li> <%= link_to i.author.full_name, i.author %> has invited you to join 
@@ -11,11 +11,7 @@
 			</li>
 		<% end %>
 	</ul>
-	<div class="profile-box">
-	<%= image_tag @link, class: "profile-pic" %>
-	<div class="profile-info">
-		<p> <%= @user.full_name %> </p>
-	</div>
+	
 </div>
 
 <ul class="nav nav-tabs nav-stacked">

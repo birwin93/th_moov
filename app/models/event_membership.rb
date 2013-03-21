@@ -17,5 +17,8 @@ class EventMembership < ActiveRecord::Base
   belongs_to :author, class_name: "User"
   belongs_to :event
 
+  def is_author?(id)
+  	self.author_id == id
+  end
 
 end

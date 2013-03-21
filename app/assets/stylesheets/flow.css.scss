@@ -1,7 +1,10 @@
 $user-column-width: 220px;
-
+$event-flow-height: 150px;
+$event-flow-width: 250px;
+$loop-flow-height: 100px;
+$loop-flow-width: 150px;
 .flow {
-	height: 100%;
+	float: left;
 	/*ul {
 		list-style: none;
 		margin: 0px;
@@ -23,6 +26,17 @@ $user-column-width: 220px;
 		-o-column-gap: 20px;
 		
 	}*/
+	float: left;
+	margin-right: 20px;
+}
+
+.event-flow-date {
+	width: 200px;
+	height: 100px;
+	position: absolute;
+	top: -15px;
+	left: 10px;
+	background: orange;
 }
 
 .user-flow {
@@ -42,24 +56,125 @@ $user-column-width: 220px;
 	margin: 0 20px 20px 0;
 }
 
+
+
 .user-flow-item {
 	position: relative;
 	border: 2px solid gray;
 	margin: 0 0 20px 0;
 	padding: 0px;
-	width: 130px;
+	width: 300px;
 	background: white;
 }
 
-.event-flow-item {
-	width: 180px;
-	height: 180px;
-	//margin: 10px 0;
+.flow-buffer {
+	width: 600px;
+	height: 20px;
+	margin-right: 100px;
 	position: relative;
+	background: #BBBBBB;
+	height: 100%;
 }
+
+.flow-buffer h1{
+position: absolute; 
+right: 15px; 
+top: 100px; 
+
+}
+
+.flow-buffer h2 {
+position: absolute; 
+right: 15px; 
+top: 150px; 
+}
+
+
+.event-flow-item {
+	position: absolute; 
+	background: none; 
+	font-family: sans-serif;
+	border-radius: 4px;
+
+	width: 580px; 
+	height: 580px; 
+	overflow: hidden; 
+
+	-webkit-box-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
+	-moz-box-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
+	box-shadow: 0px 0px 20px rgba(0, 0, 0, 1); 
+}
+
+.container-cover {
+width: 600px; 
+height: 600px; 
+background-color: none; 
+position: absolute; 
+left: 0px; 
+top: 0px;
+z-index: 1; 
+}
+
+.container-cover h1 {
+position: absolute; 
+left: 20px; 
+bottom: 80px; 
+display: none; 
+font: bold 44px helvetica; 
+color: white; 
+}
+
+.container-cover h2 {
+position: absolute; 
+display: none; 
+left: 20px; 
+bottom: 50px; 
+font:30px helvetica; 
+color: white; 
+font-weight: 100; 
+}
+
+.container-cover h3 {
+position: absolute; 
+display: none; 
+left: 21px; 
+bottom: 26px; 
+font:23px helvetica; 
+color: white; 
+font-weight: 100; 
+}
+
+.container-cover h4 {
+position: absolute; 
+display: none; 
+left: 68px; 
+bottom: 26px; 
+font:18px helvetica; 
+color: white; 
+font-weight: 100; 
+}
+
+.flow-item:hover .container-cover {
+background: rgb(112,112,112); /* Old browsers */
+background: -moz-radial-gradient(center, ellipse cover, rgba(112,112,112,1) 7%, rgba(96,96,96,1) 29%, rgba(40,40,40,1) 80%); /* FF3.6+ */
+background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(7%,rgba(112,112,112,1)), color-stop(29%,rgba(96,96,96,1)), color-stop(80%,rgba(40,40,40,1))); /* Chrome,Safari4+ */
+background: -webkit-radial-gradient(center, ellipse cover, rgba(112,112,112,1) 7%,rgba(96,96,96,1) 29%,rgba(40,40,40,1) 80%); /* Chrome10+,Safari5.1+ */
+background: -o-radial-gradient(center, ellipse cover, rgba(112,112,112,1) 7%,rgba(96,96,96,1) 29%,rgba(40,40,40,1) 80%); /* Opera 12+ */
+background: -ms-radial-gradient(center, ellipse cover, rgba(112,112,112,1) 7%,rgba(96,96,96,1) 29%,rgba(40,40,40,1) 80%); /* IE10+ */
+background: radial-gradient(ellipse at center, rgba(112,112,112,1) 7%,rgba(96,96,96,1) 29%,rgba(40,40,40,1) 80%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#707070', endColorstr='#282828',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+opacity: .8; 
+}
+
+.flow-item:hover .container-cover h1, .flow-item:hover .container-cover h2, .flow-item:hover .container-cover h3, .flow-item:hover .container-cover h4
+{
+display: block; 
+
+}
+
 .event-medium {
-	height: 180px;
-	width: 180px;
+	height: $event-flow-height;
+	width: $event-flow-width;
 }
 
 .event-name {
@@ -101,41 +216,57 @@ $user-column-width: 220px;
 }
 
 .loop-flow {
-	ul {
+	/*ul {
 		columns: 150 auto;
 		-webkit-columns: 150 auto;
 		-moz-columns: 150 auto;
 		-o-columns: 150 auto;
 		-moz-column-gap: 20px;
 	}
-	//background: yellow;
+	//background: yellow;*/
+	//overflow-y: auto;
+	height: 100px;
+	width: 95%;
+	overflow-y: auto;
+	overflow-x: hidden;
+	position: absolute;
+	bottom: 0px;
+	z-index: 1;
+	margin-left: 30px;
+}
+
+.inner-loop-flow {
+	height: 100%;
 }
 
 .loop-flow-buffer {
 	float: left;
 	width: 270px;
 	height: 150px;
+	position: relative;
+	z-index: 0;
 }
 
 .loop-flow-item {
-	height: 150px;
-	width: 150px;
+	height: $loop-flow-height;
+	width: $loop-flow-width;
 	overflow: hidden;
 	position: relative;
 	float: left;
-	margin-right: 30px;
+	margin: 0 30px 0 0;
 }
 
 .loop-flow-name {
 	width: 100%;
 	position: absolute;
-	top: 50px;
+	bottom: 0px;
 	text-align: center;
 	color: white;
+	background: rgba(0,0,0,0.6);
 }
 
 .loop-flow-picture {
-	height: 150px;
-	width: 150px;
+	height: $loop-flow-height;
+	width: $loop-flow-width;
 }
 

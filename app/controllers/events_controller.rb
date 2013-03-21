@@ -1,6 +1,10 @@
 class EventsController < ApplicationController
   # GET /events
   # GET /events.json
+  def find_FB_events
+
+  end
+
   def index
     if params.has_key?(:search)
       @events = []
@@ -11,7 +15,7 @@ class EventsController < ApplicationController
         end
       end
     else 
-      @events = Event.all
+      @events = Event.open
     end
     
 
@@ -36,6 +40,7 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @post = Post.new
+    @is_author = false;
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @event }
@@ -71,6 +76,8 @@ class EventsController < ApplicationController
     else
       @organization = Organization.find(params[:organization_id])
     end
+    @event.isVenue = "open"
+    #@event.location = params[:event][:loc]
     respond_to do |format|
       if @event.save
         @loop.loop_event_shares.create(event_id: @event.id)

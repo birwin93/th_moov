@@ -6,6 +6,8 @@ gem 'koala'
 gem 'omniauth-facebook'
 gem "paperclip", "~> 3.0"
 gem "geocoder"
+gem 'jquery_datepicker'
+gem 'filepicker-rails'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 

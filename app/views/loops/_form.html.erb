@@ -24,7 +24,8 @@
     <%= f.text_area :description %>
   </div>
   <div class="loop-file-input">
-    <%= f.file_field :avatar %>
+     <%= f.label :filepicker_url, "Upload Loop Avatar:" %>
+    <%= f.filepicker_field :filepicker_url %>
   </div>
 
   <div class="actions" style="position: absolute; top: 50px; right: 200px;">

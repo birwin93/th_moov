@@ -5,6 +5,7 @@
 	<ul class="nav nav-tabs nav-stacked">
 	<% if current_user.events.include?(@event) %>
 		<li> <a href="#"> Leave Event </a> </li>
+	<% @is_author = EventMembership.where(user_id: current_user.id, event_id: @event.id).is_author?(current_user.id) %>
 	<% else %>
 		<%= link_to 'Join', join_event_path(@event), method: :post %>
 	<% end %>
@@ -12,7 +13,7 @@
 </div>
 
 <div class="info-container">
-	<%= image_tag @event.avatar.url(:medium), class: "event-medium" %>
+	<%= filepicker_image_tag @event.filepicker_url, width: 160, height: 160, fit: 'clip' %>
 	<div class="event-show-name">
 		<%= @event.name %>
 	</div>
@@ -21,6 +22,11 @@
 	</div>
 	<div class="event-location">
 		<%= @event.location.city %>
+	</div>
+	<div class="event-edit-box">
+		<% if @is_author %>
+			<%= link_to edit_event_path(@event) %>
+		<% end %>
 	</div>
 </div>
 

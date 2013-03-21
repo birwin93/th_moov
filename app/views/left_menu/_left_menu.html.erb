@@ -1,26 +1,21 @@
-<div id="left-navbar">
-  <%= render "/left_menu/chat" %>
-</div>
+
+
+<!-- render chat here -->
 
 <ul class="nav" id="main-nav">
         <li> 
-          <div class="menu-image-container" id="menu-me">
-          </div>
-          <%= link_to "Me", user_path(current_user) %> 
+          <%= link_to "", user_path(current_user), class: "menu-image-container", id: "menu-me" %> 
         </li>
         <li> 
-          <div class="menu-image-container" id="menu-loop">
-          </div>
-          <%= link_to "Loops", loops_path %> 
+          <%= link_to "", loops_path, class: "menu-image-container", id: "menu-loop" %> 
+          <!-- <%= link_to "Loops", loops_path %> -->
         </li>
         <li> 
-          <div class="menu-image-container" id="menu-event">
-          </div>
-          <%= link_to "Events", events_path %> 
+          <%= link_to "", events_path, class: "menu-image-container", id: "menu-event" %> 
+         <!--  <%= link_to "Events", events_path %> -->
         </li>
         <li> 
-          <div class="menu-image-container" id="menu-setting">
-          </div>
-          <a href="#"> Settings </a> 
+          <%= link_to "", '#', class: "menu-image-container", id: "menu-setting" %> 
+          <!-- <a href="#"> Settings </a> -->
         </li>
      </ul>

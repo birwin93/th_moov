@@ -4,14 +4,14 @@ class LoopsController < ApplicationController
   before_filter :require_membership, except: [:index, :new, :create]
 
   def index
-    @allEvents = []
-    @loops.each do |loop|
-      loop.events.each do |event|
-        unless @allEvents.include?(event)
-          @allEvents << event
-        end
-      end
-    end
+    #@allEvents = []
+    #@loops.each do |loop|
+     # loop.events.each do |event|
+      #  unless @allEvents.include?(event)
+       #   @allEvents << event
+       # end
+      #end
+    #end
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @loops }
@@ -22,7 +22,6 @@ class LoopsController < ApplicationController
   # GET /loops/1.json
   def show
     @user = User.new
-    @post = Post.new
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @loop }
@@ -93,8 +92,8 @@ class LoopsController < ApplicationController
   private
     def require_membership
       @loop = Loop.find(params[:id])
-      lm = LoopMembership.where(loop_id: @loop.id, user_id: current_user.id)
-      redirect_to loops_path if lm.empty?
+      @lm = LoopMembership.where(loop_id: @loop.id, user_id: current_user.id).first
+      redirect_to loops_path unless @lm
     end
 
 end

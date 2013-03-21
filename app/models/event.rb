@@ -12,10 +12,12 @@
 #  avatar_file_size    :integer
 #  avatar_updated_at   :datetime
 #  date                :datetime
+#  location_id         :integer
+#  type                :string(255)
 #
 
 class Event < ActiveRecord::Base
-  attr_accessible :description, :name, :avatar, :tag_list, :date
+  attr_accessible :description, :name, :avatar, :tag_list, :date, :isVenue, :filepicker_url, :location
 
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }
 
@@ -33,8 +35,12 @@ class Event < ActiveRecord::Base
   belongs_to :location
   belongs_to :organization
 
+  validates :name, presence: true
+
+  scope :open, where("isVenue = ?", "open")
+
   def self.tagged_with(name)
-  	Tag.find_by_name!(name).events
+    Tag.where(name: name).first_or_create.events
   end
 
   def tag_list
@@ -48,7 +54,8 @@ class Event < ActiveRecord::Base
   end
 
   def location=(city)
-    Location.find_or_create_by_city(city)
+    self.location_id = Location.find_or_create_by_city(city).id
   end
+
   
 end

@@ -1,6 +1,10 @@
 class OrganizationsController < ApplicationController
   # GET /organizations
   # GET /organizations.json
+  include OrganizationSessionsHelper
+
+  before_filter :require_authentication, only: [:edit, :update, :destroy]
+  
   def index
     @organizations = Organization.all
 
@@ -80,4 +84,10 @@ class OrganizationsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+    def require_authentication
+      store_location
+      redirect_to root_path unless org_signed_in?
+    end
 end

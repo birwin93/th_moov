@@ -5,10 +5,13 @@ ThMoov::Application.routes.draw do
   end
 
 
-  #get 'events/search/:search', to: "events#search", as: "search"
+  get 'events/search/:search', to: "events#search", as: "search"
 
-  resources :events do
-    resources :event_memberships
+  resources :events, only: [:index, :create]# do
+
+  get "/new/2049382//create", to: "events#new", as: "new_event"
+  get "/32423423/findevents", to: "events#find_FB_events"
+    resources :event_memberships, only: [:create, :destroy]
     resources :posts
   end
 
@@ -20,8 +23,8 @@ ThMoov::Application.routes.draw do
 
 
   resources :loops do
-    resources :loop_memberships
-    resources :loop_event_shares
+    resources :loop_memberships, only: [:create, :destroy]
+    resources :loop_event_shares, only: [:create, :destroy]
     resources :posts
   end
 
@@ -32,7 +35,7 @@ ThMoov::Application.routes.draw do
 
   match "/organization/logout", to: "organization_sessions#destroy", as: "org_logout"
 
-  root to: "site#landing"
+  root to: "events#index"
 
   match "/about", to: "site#about"
   match "/contact", to: "site#contact"

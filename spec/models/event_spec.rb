@@ -12,6 +12,8 @@
 #  avatar_file_size    :integer
 #  avatar_updated_at   :datetime
 #  date                :datetime
+#  location_id         :integer
+#  isVenue             :string(255)
 #
 
 require 'spec_helper'
