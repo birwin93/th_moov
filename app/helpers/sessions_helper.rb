@@ -1,4 +1,4 @@
-module SessionsHelper
+cisrmodule SessionsHelper
 	def sign_in(object)
 		cookies.permanent[:remember_token] = object.remember_token
 		self.current_user = object
